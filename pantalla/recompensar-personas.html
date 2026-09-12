@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procesos para recompensar a las personas | Gestión Humana</title>
+  <meta name="description"
+    content="Procesos para recompensar a las personas: remuneración, prestaciones e incentivos dentro de la Gestión Humana.">
+  <link rel="icon" href="../img/logo-unisangil.png">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS EXCLUSIVOS — PANTALLA 4: RECOMPENSAR A LAS PERSONAS
+       ========================================================================== */
+
+    /* Sección de Introducción y Definición */
+    .reward-intro {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2.2rem;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .reward-highlight {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      border-left: 4px solid var(--accent, #D9A441);
+      border-radius: 0.8rem;
+      background: rgba(217, 164, 65, 0.1);
+    }
+
+    .reward-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .reward-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      background: #eef4f6;
+      color: var(--primary-dark, #143440);
+      border: 1px solid rgba(31, 78, 95, 0.15);
+    }
+
+    /* Tarjeta destacada para infografía */
+    .infographic-card {
+      position: relative;
+      background: #ffffff;
+      border-radius: 1.25rem;
+      padding: 0.9rem;
+      border: 1px solid rgba(31, 78, 95, 0.12);
+      box-shadow: 0 16px 36px rgba(20, 52, 64, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .infographic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 48px rgba(20, 52, 64, 0.16);
+    }
+
+    .infographic-card__media {
+      position: relative;
+      border-radius: 0.9rem;
+      overflow: hidden;
+      background: #fdfbf7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 320px;
+    }
+
+    .infographic-card__media img {
+      width: 100%;
+      height: 100%;
+      max-height: 440px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .infographic-card:hover .infographic-card__media img {
+      transform: scale(1.03);
+    }
+
+    .infographic-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(20, 52, 64, 0.85);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      backdrop-filter: blur(4px);
+      z-index: 2;
+    }
+
+    .infographic-caption {
+      padding: 0.85rem 0.5rem 0.2rem;
+      font-size: 0.9rem;
+      color: var(--muted, #6B7280);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .infographic-caption strong {
+      color: var(--primary-dark, #143440);
+    }
+
+    .infographic-caption .zoom-action {
+      color: var(--primary, #1F4E5F);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.82rem;
+    }
+
+    /* Subprocesos y acordeón */
+    .subprocess-intro {
+      margin-bottom: 24px;
+      font-size: 1.05rem;
+    }
+
+    /* Galerías tipo collage para subprocesos */
+    .process-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 170px;
+      gap: 14px;
+      margin: 24px 0 10px;
+    }
+
+    .process-gallery figure {
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      min-height: 170px;
+      background: #f1f4f6;
+      border: 1px solid rgba(31, 78, 95, 0.08);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+    }
+
+    /* Elemento principal del collage (ocupa 2 columnas y 2 filas) */
+    .process-gallery figure.gallery-item--featured {
+      grid-column: span 2;
+      grid-row: span 2;
+      background: #fff;
+    }
+
+    .process-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    /* Para infografías y diagramas conceptuales, ajustar con contain para no recortar texto */
+    .process-gallery figure.gallery-item--infographic img {
+      object-fit: contain;
+      background: #fff;
+      padding: 8px;
+    }
+
+    .process-gallery figure:hover img {
+      transform: scale(1.05);
+    }
+
+    .process-gallery figcaption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 32px 14px 12px;
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      background: linear-gradient(transparent, rgba(15, 35, 43, 0.85));
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .process-gallery figcaption span.zoom-icon {
+      background: rgba(255, 255, 255, 0.25);
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .gallery-badge-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--primary-dark, #143440);
+      color: #fff;
+      padding: 4px 9px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      z-index: 2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    /* Estilos para listas de tipos y videos */
+    .type-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .type-list div {
+      padding: 14px 16px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+    }
+
+    .video-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .video-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: #eef4f6;
+      color: var(--primary-dark, #143440);
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(31, 78, 95, 0.15);
+      transition: all 0.25s ease;
+    }
+
+    .video-links a:hover {
+      background: var(--primary, #1F4E5F);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(31, 78, 95, 0.2);
+    }
+
+    /* Sección Collage / Mosaico Completo de Recursos */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .showcase-card {
+      background: #fff;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(31, 78, 95, 0.1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px rgba(31, 78, 95, 0.15);
+    }
+
+    .showcase-card__img-wrap {
+      height: 240px;
+      background: #faf8f5;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .showcase-card__img-wrap img {
+      max-height: 100%;
+      width: 100%;
+      object-fit: contain;
+      transition: transform 0.35s ease;
+    }
+
+    .showcase-card:hover .showcase-card__img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .showcase-card__body {
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .showcase-card__tag {
+      align-self: flex-start;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(31, 78, 95, 0.1);
+      color: var(--primary, #1F4E5F);
+      margin-bottom: 0.6rem;
+    }
+
+    .showcase-card__title {
+      font-size: 1.05rem;
+      font-family: var(--font-display);
+      margin: 0 0 0.4rem;
+      color: var(--primary-dark, #143440);
+    }
+
+    .showcase-card__desc {
+      font-size: 0.85rem;
+      color: var(--muted, #6B7280);
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    /* Modal Visor / Lightbox */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 25, 32, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-modal.is-open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-container {
+      position: relative;
+      max-width: 90vw;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: lightboxZoom 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes lightboxZoom {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .lightbox-container img {
+      max-width: 90vw;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-caption {
+      margin-top: 14px;
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -18px;
+      right: -18px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent, #D9A441);
+      color: #143440;
+      border: 2px solid #fff;
+      font-size: 24px;
+      font-weight: bold;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      line-height: 1;
+    }
+
+    .lightbox-close:hover {
+      transform: scale(1.1);
+      background: #fff;
+    }
+
+    .reference-item a {
+      overflow-wrap: anywhere;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .reward-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .process-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 150px;
+      }
+
+      .process-gallery figure.gallery-item--featured {
+        grid-column: span 2;
+        grid-row: span 1;
+        min-height: 250px;
+      }
+
+      .type-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-gallery {
+        gap: 9px;
+        grid-auto-rows: 130px;
+      }
+
+      .process-gallery figcaption {
+        font-size: 0.8rem;
+        padding: 24px 10px 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <!-- MIGAS DE PAN -->
+    <nav class="breadcrumb container" aria-label="Ruta de navegación">
+      <a href="../index.html">Inicio</a><span class="sep">/</span><span aria-current="page">Recompensar personas</span>
+    </nav>
+
+    <!-- HERO -->
+    <section class="process-hero">
+      <div class="container">
+        <div class="process-hero-top">
+          <div>
+            <span class="process-number">Proceso 04 de 08</span>
+            <h1>Procesos para recompensar a las personas</h1>
+            <p class="process-hero-desc">
+              Prácticas de Gestión Humana para reconocer y retribuir la contribución, el esfuerzo y el desempeño de los
+              colaboradores a través de un sistema integral que equilibra remuneración, prestaciones e incentivos.
+            </p>
+            <div class="responsibles">
+              <span class="chip">Karol Fabiana Suárez Gualdrón</span>
+              <span class="chip">Luisa Fernanda Pico Vesga</span>
+              <span class="chip">Zhara Nicole Jiménez Amado</span>
+              <span class="chip">Lucila Aguirre Parra</span>
+            </div>
+          </div>
+          <div class="process-glyph" aria-hidden="true">04</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEFINICIÓN CON INFOGRAFÍA DESTACADA -->
+    <section class="section" id="definicion">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Concepto Central</span>
+          <h2>¿En qué consiste recompensar a las personas?</h2>
+        </div>
+
+        <div class="reward-intro">
+          <div>
+            <p>
+              Los <strong>procesos para recompensar a las personas</strong> constituyen el conjunto articulado de
+              políticas y prácticas organizacionales orientadas a retribuir la contribución, el tiempo, el conocimiento y
+              los logros de los colaboradores en la organización.
+            </p>
+            <p>
+              Este sistema busca establecer una relación de correspondencia justa entre el aporte de cada persona y las
+              retribuciones tangibles e intangibles que recibe. Trasciende la noción del simple pago monetario al
+              integrar beneficios de seguridad, calidad de vida y estímulos al alto desempeño.
+            </p>
+
+            <div class="reward-highlight">
+              <strong>Eje articulador:</strong>
+              El sistema de recompensas conecta el valor del puesto y las responsabilidades asignadas con el bienestar
+              del trabajador y el logro de las metas estratégicas de la empresa.
+            </div>
+
+            <div class="reward-pills">
+              <span class="reward-pill">💰 1. Remuneración (Sueldo base y pago directo)</span>
+              <span class="reward-pill">🎁 2. Prestaciones (Beneficios y bienestar)</span>
+              <span class="reward-pill">🏆 3. Incentivos (Premios al desempeño)</span>
+            </div>
+          </div>
+
+          <!-- Tarjeta de infografía general (mundoDeRcompensa.png) -->
+          <div class="infographic-card" data-lightbox="../img/Pantalla_4/mundoDeRcompensa.png"
+            data-caption="Infografía general: ¡El Dulce Mundo de las Recompensas! — Visión global de los 3 pilares del sistema de recompensas.">
+            <span class="infographic-badge">📊 Infografía General</span>
+            <div class="infographic-card__media">
+              <img src="../img/Pantalla_4/mundoDeRcompensa.png"
+                alt="Infografía general sobre el mundo de las recompensas, mostrando remuneración, prestaciones e incentivos">
+            </div>
+            <div class="infographic-caption">
+              <strong>El Corazón del Reconocimiento</strong>
+              <span class="zoom-action">🔍 Clic para ampliar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJETIVOS -->
+    <section class="section section--alt" id="objetivos">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Propósito</span>
+          <h2>Objetivos del proceso</h2>
+        </div>
+        <div class="objective-list">
+          <div class="objective-item reveal">
+            <span class="obj-mark">—</span>
+            <p class="mt-0"><strong>Reconocer la contribución:</strong> valorar adecuadamente el aporte de los
+              trabajadores al cumplimiento de la misión organizacional.</p>
+          </div>
+          <div class="objective-item reveal">
+            <span class="obj-mark">—</span>
+            <p class="mt-0"><strong>Compensar con equidad:</strong> garantizar retribuciones justas conforme a las
+              responsabilidades del cargo y las condiciones del mercado laboral.</p>
+          </div>
+          <div class="objective-item reveal">
+            <span class="obj-mark">—</span>
+            <p class="mt-0"><strong>Motivar el desempeño:</strong> impulsar la proactividad, el compromiso y la
+              orientación a resultados superiores.</p>
+          </div>
+          <div class="objective-item reveal">
+            <span class="obj-mark">—</span>
+            <p class="mt-0"><strong>Favorecer la satisfacción:</strong> generar un clima de justicia distributiva y
+              reconocimiento individual y colectivo.</p>
+          </div>
+          <div class="objective-item reveal">
+            <span class="obj-mark">—</span>
+            <p class="mt-0"><strong>Atraer y retener talento:</strong> posicionar a la organización como un empleador
+              atractivo para los profesionales calificados.</p>
+          </div>
+          <div class="objective-item reveal">
+            <span class="obj-mark">—</span>
+            <p class="mt-0"><strong>Promover el bienestar integral:</strong> brindar cobertura y beneficios que
+              fortalezcan la salud y la armonía entre vida laboral y familiar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARACTERÍSTICAS -->
+    <section class="section" id="caracteristicas">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Fundamentos</span>
+          <h2>Características del proceso</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card card--outline-top reveal">
+            <h3>1. Reconoce la contribución</h3>
+            <p>Se enfoca en retribuir el esfuerzo, las competencias y la dedicación efectiva que las personas aportan
+              diariamente.</p>
+          </div>
+          <div class="card card--outline-top reveal">
+            <h3>2. Es multidimensional</h3>
+            <p>No se reduce al sueldo; articula compensación económica directa, beneficios de bienestar e incentivos por
+              metas.</p>
+          </div>
+          <div class="card card--outline-top reveal">
+            <h3>3. Vinculado al desempeño</h3>
+            <p>Crea puentes directos entre el logro de resultados específicos y las recompensas otorgadas al colaborador.</p>
+          </div>
+          <div class="card card--outline-top reveal">
+            <h3>4. Genera motivación</h3>
+            <p>Fomenta el sentido de pertenencia y compromiso cuando el colaborador percibe que su esfuerzo es valorado con
+              justicia.</p>
+          </div>
+          <div class="card card--outline-top reveal">
+            <h3>5. Estructurado y transparente</h3>
+            <p>Exige políticas, escalas salariales y reglas claras para evitar la discrecionalidad y la percepción de
+              inequidad.</p>
+          </div>
+          <div class="card card--outline-top reveal">
+            <h3>6. Impulsa la permanencia</h3>
+            <p>Un sistema de recompensas competitivo reduce la rotación no deseada y cuida la estabilidad del capital
+              humano.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBPROCESOS -->
+    <section class="section section--alt" id="subprocesos">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Desarrollo del Proceso</span>
+          <h2>Subprocesos de Recompensar</h2>
+        </div>
+        <p class="subprocess-intro">
+          El proceso de recompensar a las personas se articula a través de tres componentes complementarios:
+          <strong>💰 Remuneración</strong>, <strong>🎁 Prestaciones</strong> y <strong>🏆 Incentivos</strong>.
+          Haz clic en cada panel para conocer su definición, funcionamiento, ejemplos e infografías explicativas.
+        </p>
+
+        <div class="accordion">
+
+          <!-- 01: REMUNERACIÓN -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="true" aria-controls="p-rec-1">
+              <h3><span class="idx">01</span>Remuneración 💰</h3>
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-panel" id="p-rec-1" style="max-height: 2200px;">
+              <div class="accordion-panel-inner">
+                <h4>¿Qué es la remuneración?</h4>
+                <p>
+                  La remuneración es la contraprestación económica directa y periódica que recibe un colaborador por los
+                  servicios prestados a la organización. Tiene como base fundamental el salario contractual pactado,
+                  determinado por el análisis y valoración del cargo, las competencias requeridas y las condiciones del
+                  mercado laboral.
+                </p>
+
+                <h4>¿Cómo funciona en la empresa?</h4>
+                <p>
+                  Para definir una remuneración equitativa, la organización establece escalas y bandas salariales a partir
+                  de tres factores esenciales: <em>las funciones asignadas</em>, <em>las responsabilidades y nivel de
+                    toma de decisiones</em> y <em>las características técnicas del puesto</em>. De este modo, se asegura
+                  la equidad interna y la competitividad externa.
+                </p>
+
+                <div class="example">
+                  <strong>💼 Ejemplo práctico organizacional:</strong>
+                  <p>
+                    Una organización contrata a una psicóloga organizacional para liderar los procesos de selección por
+                    competencias, evaluación del desempeño y planes de capacitación. Por la complejidad de sus funciones
+                    especializadas, se le asigna un salario mensual estipulado en su contrato, garantizando el pago formal y
+                    oportuno de sus haberes laborales.
+                  </p>
+                </div>
+
+                <!-- Collage / Galería de Remuneración -->
+                <div class="process-gallery" aria-label="Galería visual de remuneración">
+                  <!-- Imagen propia destacada: ejemplo-practico.png -->
+                  <figure class="gallery-item--featured gallery-item--infographic"
+                    data-lightbox="../img/Pantalla_4/ejemplo-practico.png"
+                    data-caption="Infografía: ¡Entendiendo tu Remuneración! — Factores determinantes, ciclo de 4 pasos hacia el pago y caso práctico de la Psicóloga Organizacional.">
+                    <span class="gallery-badge-tag">⭐ Infografía Clave</span>
+                    <img src="../img/Pantalla_4/ejemplo-practico.png"
+                      alt="Infografía explicativa sobre remuneración laboral, factores y caso práctico de psicóloga organizacional">
+                    <figcaption>
+                      <span>Entendiendo tu Remuneración</span>
+                      <span class="zoom-icon">🔍 Ampliar</span>
+                    </figcaption>
+                  </figure>
+
+                  <figure data-lightbox="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=85"
+                    data-caption="Gestión de escalas y bandas salariales en el área de compensaciones.">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=85"
+                      alt="Persona revisando análisis financiero y estructura salarial">
+                    <figcaption>
+                      <span>Estructura salarial</span>
+                      <span class="zoom-icon">🔍</span>
+                    </figcaption>
+                  </figure>
+
+                  <figure data-lightbox="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=85"
+                    data-caption="Evaluación del cargo y definición de responsabilidades contractuales.">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=85"
+                      alt="Equipo de trabajo analizando especificaciones del puesto">
+                    <figcaption>
+                      <span>Valoración de cargos</span>
+                      <span class="zoom-icon">🔍</span>
+                    </figcaption>
+                  </figure>
+
+                  <figure data-lightbox="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=85"
+                    data-caption="Gestión profesional del talento y entrega oportuna de la contraprestación económica.">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=85"
+                      alt="Profesional de talento humano en reunión de gestión laboral">
+                    <figcaption>
+                      <span>Compensación justa</span>
+                      <span class="zoom-icon">🔍</span>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 02: PRESTACIONES -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="p-rec-2">
+              <h3><span class="idx">02</span>Prestaciones 🎁</h3>
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-panel" id="p-rec-2">
+              <div class="accordion-panel-inner">
+                <h4>¿Qué son las prestaciones?</h4>
+                <p>
+                  Las prestaciones son un conjunto de beneficios, servicios, derechos y asistencias que complementan la
+                  remuneración monetaria directa. Tienen por propósito proteger la seguridad económica, la salud y el
+                  bienestar del trabajador y su grupo familiar, garantizando condiciones de trabajo dignas y calidad de
+                  vida.
+                </p>
+
+                <h4>Origen y funcionamiento</h4>
+                <p>
+                  Las prestaciones pueden originarse en tres fuentes: <strong>legales</strong> (obligatorias según la
+                  legislación laboral de cada país, como cesantías, prima de servicios o seguridad social),
+                  <strong>contractuales</strong> (acordadas en convenios colectivos o contratos individuales) y
+                  <strong>voluntarias</strong> (otorgadas por políticas internas de la organización para enriquecer su
+                  propuesta de valor al empleado).
+                </p>
+
+                <h4>Catálogo común de prestaciones</h4>
+                <ul>
+                  <li><strong>Protección social:</strong> afiliación integral a salud, pensiones y riesgos laborales.</li>
+                  <li><strong>Descanso legal:</strong> vacaciones periódicas remuneradas y días compensatorios.</li>
+                  <li><strong>Licencias y permisos:</strong> maternidad, paternidad, calamidad y permisos académicos.</li>
+                  <li><strong>Programas de bienestar:</strong> convenios recreativos, auxilios educativos y seguros complementarios.</li>
+                  <li><strong>Conciliación:</strong> flexibilidad horaria y apoyo para el balance vida laboral-personal.</li>
+                </ul>
+
+                <div class="example">
+                  <strong>🎁 Ejemplo práctico organizacional:</strong>
+                  <p>
+                    Además de su sueldo quincenal o mensual, los colaboradores de una compañía cuentan con afiliación a
+                    seguridad social en salud, vacaciones pagadas anuales, primas de ley y una póliza de seguro médico
+                    complementario financiada por la empresa como beneficio de bienestar.
+                  </p>
+                </div>
+
+                <!-- Collage / Galería de Prestaciones -->
+                <div class="process-gallery" aria-label="Galería visual de prestaciones laborales">
+                  <!-- Imagen propia destacada: presentaciones-laborales.png -->
+                  <figure class="gallery-item--featured gallery-item--infographic"
+                    data-lightbox="../img/Pantalla_4/presentaciones-laborales.png"
+                    data-caption="Mapa conceptual: Prestaciones Laborales — Estructura analítica de qué son, origen (ley, contrato, empresa), propósito de protección y catálogo de ejemplos.">
+                    <span class="gallery-badge-tag">⭐ Mapa Conceptual</span>
+                    <img src="../img/Pantalla_4/presentaciones-laborales.png"
+                      alt="Mapa conceptual sobre prestaciones laborales, su origen, propósito y ejemplos prácticos">
+                    <figcaption>
+                      <span>Mapa Conceptual de Prestaciones</span>
+                      <span class="zoom-icon">🔍 Ampliar</span>
+                    </figcaption>
+                  </figure>
+
+                  <figure data-lightbox="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85"
+                    data-caption="Ambiente de trabajo colaborativo que promueve el bienestar y la seguridad en el empleo.">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=85"
+                      alt="Equipo de trabajo disfrutando de un espacio laboral armónico">
+                    <figcaption>
+                      <span>Bienestar y clima</span>
+                      <span class="zoom-icon">🔍</span>
+                    </figcaption>
+                  </figure>
+
+                  <figure data-lightbox="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1200&q=85"
+                    data-caption="Garantía de descanso periódico, vacaciones programadas y conciliación vida-trabajo.">
+                    <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=85"
+                      alt="Planificación y calendario de vacaciones laborales">
+                    <figcaption>
+                      <span>Vacaciones y descanso</span>
+                      <span class="zoom-icon">🔍</span>
+                    </figcaption>
+                  </figure>
+
+                  <figure data-lightbox="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=85"
+                    data-caption="Cobertura en salud integral y seguridad social para el colaborador y su núcleo familiar.">
+                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=85"
+                      alt="Atención médica y cobertura de seguridad social">
+                    <figcaption>
+                      <span>Beneficios de salud</span>
+                      <span class="zoom-icon">🔍</span>
+                    </figcaption>
+                  </figure>
+                </div>
+
+                <div class="video-links">
+                  <a href="https://youtu.be/TzbD9xcXKcM?feature=shared" target="_blank" rel="noopener noreferrer">
+                    🎥 Ver video explicativo sobre prestaciones sociales
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 03: INCENTIVOS -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="p-rec-3">
+              <h3><span class="idx">03</span>Incentivos 🏆</h3>
+              <span class="accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-panel" id="p-rec-3">
+              <div class="accordion-panel-inner">
+                <h4>¿Qué son los incentivos?</h4>
+                <p>
+                  Los incentivos son recompensas contingentes diseñadas para estimular, reconocer y premiar niveles de
+                  rendimiento superiores, comportamientos estratégicos o el logro de metas específicas, tanto de carácter
+                  individual como grupal.
+                </p>
+
+                <h4>¿Cómo funcionan?</h4>
+                <p>
+                  El mecanismo se basa en la claridad previa: la empresa define <em>metas objetivas</em> y los
+                  <em>indicadores de evaluación</em>. Al término del periodo de evaluación, si los resultados alcanzados
+                  satisfacen los criterios acordados, se otorga la recompensa respectiva.
+                </p>
+
+                <h4>Clasificación de incentivos</h4>
+                <div class="type-list">
+                  <div>💵 <strong>Económicos:</strong> bonificaciones trimestrales, comisiones por logro de metas y premios en efectivo.</div>
+                  <div>👏 <strong>No económicos:</strong> diplomas de excelencia, días libres adicionales, becas y oportunidades de formación.</div>
+                  <div>👥 <strong>Individuales:</strong> asociados al esfuerzo y rendimiento directo del colaborador.</div>
+                  <div>🤝 <strong>Grupales:</strong> otorgados a células de trabajo o departamentos que superan metas colectivas.</div>
+                </div>
+
+                <div class="example">
+                  <strong>🏆 Ejemplo práctico organizacional:</strong>
+                  <p>
+                    El departamento comercial establece la meta de aumentar las afiliaciones un 15% en el semestre. El equipo
+                    que supera la cota de calidad y servicio recibe una bonificación económica compartida y dos días de descanso
+                    remunerado como reconocimiento a su excelencia.
+                  </p>
+                </div>
+
+                <!-- Collage / Galería de Incentivos -->
+                <div class="process-gallery" aria-label="Galería visual de incentivos laborales">
+                  <!-- Imagen propia destacada: tipoDeInsentivos.png -->
+                  <figure class="gallery-item--featured gallery-item--infographic"
+                    data-lightbox="../img/Pantalla_4/tipoDeInsentivos.png"
+                    data-caption="Matriz ilustrada: Tipos de Incentivos — Tabla visual con ejemplos de incentivos económicos vs. no económicos, aplicados a nivel individual y grupal.">
+                    <span class="gallery-badge-tag">⭐ Matriz Ilustrada</span>
+                    <img src="../img/Pantalla_4/tipoDeInsentivos.png"
+                      alt="Tabla ilustrada de tipos de incentivos económicos y no económicos individuales y grupales">
+                    <figcaption>
+                      <span>Matriz: Tipos de Incentivos</span>
+                      <span class="zoom-icon">🔍 Ampliar</span>
+                    </figcaption>
+                  </figure>
+
+                  <figure data-lightbox="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=85"
+                    data-caption="Reconocimiento del mérito y celebración de victorias del equipo de trabajo.">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=85"
+                      alt="Equipo de trabajo celebrando el cumplimiento de metas">
+                    <figcaption>
+                      <span>Reconocimiento</span>
+                      <span class="zoom-icon">🔍</span>
+                    </figcaption>
+                  </figure>
+
+                  <figure data-lightbox="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85"
+                    data-caption="Alineación estratégica de objetivos e incentivos por rendimiento.">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=85"
+                      alt="Líder y equipo analizando métricas de desempeño">
+                    <figcaption>
+                      <span>Metas y desempeño</span>
+                      <span class="zoom-icon">🔍</span>
+                    </figcaption>
+                  </figure>
+
+                  <figure data-lightbox="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85"
+                    data-caption="Fomento del trabajo colaborativo a través de incentivos de equipo.">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=85"
+                      alt="Colaboradores trabajando en conjunto en mesa redonda">
+                    <figcaption>
+                      <span>Incentivos grupales</span>
+                      <span class="zoom-icon">🔍</span>
+                    </figcaption>
+                  </figure>
+                </div>
+
+                <div class="video-links">
+                  <a href="https://youtu.be/RnQOlGhhDrw?si=tkg5oHinNnpLK3Ls" target="_blank" rel="noopener noreferrer">
+                    🎥 Ver video: Tipos de incentivos laborales
+                  </a>
+                  <a href="https://youtu.be/0kSWbsVzolQ?si=MNH4IrJuevWjeGLu" target="_blank" rel="noopener noreferrer">
+                    ▶️ Ver caso práctico y ejemplo de incentivos
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA COMPLETA DE RECURSOS PROPIOS (COLLAGE DE LA PANTALLA 4) -->
+    <section class="section" id="galeria-recursos">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Mosaico Visual</span>
+          <h2>Galería de recursos e infografías de la pantalla</h2>
+          <p>
+            Explora las cuatro ilustraciones, mapas e infografías diseñadas para este proceso. Puedes hacer clic en
+            cualquiera de ellas para examinarla en alta resolución con el visor interactivo.
+          </p>
+        </div>
+
+        <div class="showcase-grid">
+          <!-- 1. General -->
+          <article class="showcase-card" data-lightbox="../img/Pantalla_4/mundoDeRcompensa.png"
+            data-caption="Infografía General: ¡El Dulce Mundo de las Recompensas! — Explicación de los tres pilares de compensación y resumen comparativo.">
+            <div class="showcase-card__img-wrap">
+              <img src="../img/Pantalla_4/mundoDeRcompensa.png"
+                alt="El dulce mundo de las recompensas, infografía ilustrada general">
+            </div>
+            <div class="showcase-card__body">
+              <span class="showcase-card__tag">Visión Global</span>
+              <h3 class="showcase-card__title">Mundo de las Recompensas</h3>
+              <p class="showcase-card__desc">
+                Infografía integral sobre el corazón del reconocimiento, los tres pilares del proceso y su tabla comparativa.
+              </p>
+            </div>
+          </article>
+
+          <!-- 2. Remuneración -->
+          <article class="showcase-card" data-lightbox="../img/Pantalla_4/ejemplo-practico.png"
+            data-caption="Infografía de Remuneración: ¡Entendiendo tu Remuneración! — Factores determinantes, ciclo de 4 pasos hacia el pago y caso de estudio de Psicóloga Organizacional.">
+            <div class="showcase-card__img-wrap">
+              <img src="../img/Pantalla_4/ejemplo-practico.png"
+                alt="Entendiendo tu remuneración, factores de pago y ejemplo práctico">
+            </div>
+            <div class="showcase-card__body">
+              <span class="showcase-card__tag">Remuneración</span>
+              <h3 class="showcase-card__title">Entendiendo tu Remuneración</h3>
+              <p class="showcase-card__desc">
+                Factores que definen el salario, ciclo de 4 pasos hacia el pago y aplicación práctica con el perfil de psicóloga organizacional.
+              </p>
+            </div>
+          </article>
+
+          <!-- 3. Prestaciones -->
+          <article class="showcase-card" data-lightbox="../img/Pantalla_4/presentaciones-laborales.png"
+            data-caption="Mapa Conceptual: Prestaciones Laborales — Estructura analítica con definición, origen legal/organizacional, propósitos y ejemplos prácticos.">
+            <div class="showcase-card__img-wrap">
+              <img src="../img/Pantalla_4/presentaciones-laborales.png"
+                alt="Mapa conceptual de prestaciones laborales con origen, propósitos y catálogo de beneficios">
+            </div>
+            <div class="showcase-card__body">
+              <span class="showcase-card__tag">Prestaciones</span>
+              <h3 class="showcase-card__title">Mapa de Prestaciones Laborales</h3>
+              <p class="showcase-card__desc">
+                Esquema estructurado sobre origen de ley, convenios, propósitos de bienestar y catálogo de beneficios para los colaboradores.
+              </p>
+            </div>
+          </article>
+
+          <!-- 4. Incentivos -->
+          <article class="showcase-card" data-lightbox="../img/Pantalla_4/tipoDeInsentivos.png"
+            data-caption="Matriz Visual: Tipos de Incentivos — Cuadro ilustrado de incentivos económicos vs no económicos, individuales y colectivos.">
+            <div class="showcase-card__img-wrap">
+              <img src="../img/Pantalla_4/tipoDeInsentivos.png"
+                alt="Matriz ilustrada con los tipos de incentivos económicos y no económicos">
+            </div>
+            <div class="showcase-card__body">
+              <span class="showcase-card__tag">Incentivos</span>
+              <h3 class="showcase-card__title">Matriz de Tipos de Incentivos</h3>
+              <p class="showcase-card__desc">
+                Tabla comparativa con ejemplos de recompensas monetarias, reconocimientos simbólicos y modalidades individuales o grupales.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SÍNTESIS -->
+    <section class="section section--alt" id="sintesis">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Síntesis</span>
+          <h2>Remuneración – Prestaciones – Incentivos</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <h3>💰 Remuneración</h3>
+            <p>Compensación periódica y directa que retribuye el trabajo efectuado según las funciones y responsabilidades del puesto.</p>
+          </div>
+          <div class="card reveal">
+            <h3>🎁 Prestaciones</h3>
+            <p>Beneficios, asistencias y coberturas de ley o extralegales que complementan el sueldo y garantizan bienestar y seguridad.</p>
+          </div>
+          <div class="card reveal">
+            <h3>🏆 Incentivos</h3>
+            <p>Estímulos variables económicos o simbólicos vinculados al cumplimiento de objetivos sobresalientes individuales o grupales.</p>
+          </div>
+        </div>
+        <div class="video-links">
+          <a href="https://youtube.com/shorts/vcQEMiMVSRE?feature=share" target="_blank" rel="noopener noreferrer">
+            🎬 Ver síntesis dinámica en video
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECURSOS MULTIMEDIA -->
+    <section class="section" id="recursos">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Material complementario</span>
+          <h2>Recursos multimedia</h2>
+        </div>
+        <div class="grid grid-2">
+          <div class="resource-card reveal">
+            <span class="icon">🎁</span>
+            <div class="body">
+              <h4>Prestaciones laborales</h4>
+              <p>Video relacionado con los beneficios y derechos asociados a la relación laboral y la seguridad social.</p>
+              <a href="https://youtu.be/TzbD9xcXKcM?feature=shared" target="_blank" rel="noopener noreferrer">Ver video</a>
+            </div>
+          </div>
+          <div class="resource-card reveal">
+            <span class="icon">🏆</span>
+            <div class="body">
+              <h4>Tipos de incentivos</h4>
+              <p>Material audiovisual sobre los distintos esquemas de recompensas económicas y reconocimientos no económicos.</p>
+              <a href="https://youtu.be/RnQOlGhhDrw?si=tkg5oHinNnpLK3Ls" target="_blank" rel="noopener noreferrer">Ver video</a>
+            </div>
+          </div>
+          <div class="resource-card reveal">
+            <span class="icon">📌</span>
+            <div class="body">
+              <h4>Ejemplo de incentivos</h4>
+              <p>Ejemplo práctico ilustrado de cómo se formulan y aplican programas de incentivos en una empresa moderna.</p>
+              <a href="https://youtu.be/0kSWbsVzolQ?si=MNH4IrJuevWjeGLu" target="_blank" rel="noopener noreferrer">Ver video</a>
+            </div>
+          </div>
+          <div class="resource-card reveal">
+            <span class="icon">🎬</span>
+            <div class="body">
+              <h4>Síntesis del proceso</h4>
+              <p>Resumen audiovisual conciso sobre los tres ejes del sistema: remuneración, prestaciones e incentivos.</p>
+              <a href="https://youtube.com/shorts/vcQEMiMVSRE?feature=share" target="_blank" rel="noopener noreferrer">Ver síntesis</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCIAS BIBLIOGRÁFICAS -->
+    <section class="section section--alt" id="referencias">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Fundamentación Teórica</span>
+          <h2>Referencias bibliográficas</h2>
+        </div>
+        <div class="reference-list">
+          <div class="reference-item">
+            Departamento Administrativo de la Función Pública. (2012).
+            <em>Régimen prestacional y salarial de empleados del sector público: Prestaciones sociales.</em>
+            Gobierno de Colombia.
+            <br>
+            <a href="https://www.ane.gov.co/Documentos%20compartidos/ArchivosDescargables/Normatividad/Normatividad_Ane/Prestaciones_sociales/Cartillalaboral2012DAFP.pdf"
+              target="_blank" rel="noopener noreferrer">Consultar documento normativo</a>
+          </div>
+          <div class="reference-item">
+            Herrera Serrano, R. M., Reyes Hernández, M. Z., &amp; Gutiérrez Aguinaga, M. R. (2019).
+            <em>Subsistema de recursos humanos con énfasis en remuneración, programa de incentivos y prestaciones sociales.</em>
+            Tesis de grado, Universidad Nacional Autónoma de Nicaragua, Managua.
+            <br>
+            <a href="https://repositorio.unan.edu.ni/id/eprint/15436/" target="_blank" rel="noopener noreferrer">Consultar referencia</a>
+          </div>
+          <div class="reference-item">
+            Malagón Sánchez, A. M. (2006).
+            <em>La importancia del sistema de compensaciones e incentivos en la motivación de los trabajadores.</em>
+            Trabajo de grado, Universidad de La Sabana.
+            <br>
+            <a href="https://intellectum.unisabana.edu.co/entities/publication/7bdf9f5e-08e5-52b7-e053-7e0910accd73"
+              target="_blank" rel="noopener noreferrer">Consultar referencia</a>
+          </div>
+          <div class="reference-item">
+            Madero Gómez, S. M., &amp; Peña Rivera, H. (2013).
+            Análisis de los procesos de recursos humanos y su influencia en los bonos y prestaciones.
+            <em>Cuadernos de Administración, 29</em>(50). Universidad del Valle.
+            <br>
+            <a href="https://bibliotecadigital.univalle.edu.co/entities/publication/c5126010-846a-4769-bd19-a3457917f01b"
+              target="_blank" rel="noopener noreferrer">Consultar referencia</a>
+          </div>
+          <div class="reference-item">
+            Universidad de Granada. (s. f.).
+            <em>Guía docente de gestión de los sistemas de retribución.</em>
+            Universidad de Granada.
+            <br>
+            <a href="https://www.ugr.es/estudiantes/grados/grado-relaciones-laborales-recursos-humanos/gestion-sistemas-retribucion/guia-docente"
+              target="_blank" rel="noopener noreferrer">Consultar guía docente</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAVEGACIÓN ENTRE PANTALLAS -->
+    <section class="section">
+      <div class="container">
+        <div class="process-pager">
+          <a class="pager-link prev" href="integrar-personas.html">
+            <span class="dir">← Anterior</span>
+            <span class="title">Integrar personas</span>
+          </a>
+          <a class="pager-link next" href="desarrollar-personas.html">
+            <span class="dir">Siguiente →</span>
+            <span class="title">Desarrollar personas</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL / LIGHTBOX PARA AMPLIAR IMÁGENES E INFOGRAFÍAS -->
+  <div id="image-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox-container">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar visor de imagen">&times;</button>
+      <img id="lightbox-img" src="" alt="">
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/main.js"></script>
+
+  <!-- SCRIPT PARA EL LIGHTBOX INTERACTIVO -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var modal = document.getElementById("image-lightbox");
+      var modalImg = document.getElementById("lightbox-img");
+      var modalCaption = document.getElementById("lightbox-caption");
+      var closeBtn = document.getElementById("lightbox-close");
+
+      function openLightbox(src, caption) {
+        if (!modal || !modalImg) return;
+        modalImg.src = src;
+        modalImg.alt = caption || "Imagen ampliada";
+        modalCaption.textContent = caption || "";
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        if (!modal) return;
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        setTimeout(function () {
+          if (modalImg) modalImg.src = "";
+        }, 250);
+      }
+
+      // Eventos para todos los elementos con data-lightbox
+      document.querySelectorAll("[data-lightbox]").forEach(function (el) {
+        el.addEventListener("click", function (e) {
+          e.preventDefault();
+          var src = this.getAttribute("data-lightbox");
+          var caption = this.getAttribute("data-caption") || "";
+          openLightbox(src, caption);
+        });
+      });
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          closeLightbox();
+        });
+      }
+
+      if (modal) {
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal || e.target.classList.contains("lightbox-container")) {
+            closeLightbox();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal && modal.classList.contains("is-open")) {
+          closeLightbox();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
