@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procesos para desarrollar a las personas | Gestión Humana</title>
+  <meta name="description"
+    content="Procesos para desarrollar a las personas: formación, desarrollo, aprendizaje y administración del conocimiento dentro de la Gestión Humana.">
+  <link rel="icon" href="../img/logo-unisangil.png">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS EXCLUSIVOS — PANTALLA 5: DESARROLLAR A LAS PERSONAS
+       Responsables: Julieth Triana González & Gabriela Torres Méndez
+       ========================================================================== */
+
+    /* Tarjetas de Imagen y Vitrina Visual */
+    .visual-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(20, 52, 64, 0.06);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .visual-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(20, 52, 64, 0.12);
+      border-color: var(--secondary);
+    }
+
+    .visual-card__media {
+      position: relative;
+      background: #f1f5f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      cursor: zoom-in;
+      overflow: hidden;
+      min-height: 230px;
+    }
+
+    .visual-card__media img {
+      max-width: 100%;
+      height: auto;
+      max-height: 250px;
+      object-fit: contain;
+      border-radius: 8px;
+      transition: transform 0.35s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .visual-card__media:hover img {
+      transform: scale(1.03);
+    }
+
+    .visual-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(20, 52, 64, 0.88);
+      color: #ffffff;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      backdrop-filter: blur(4px);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      z-index: 2;
+    }
+
+    .visual-badge--accent {
+      background: var(--accent-dark);
+      color: #fff;
+    }
+
+    .zoom-hint {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--primary-dark);
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      pointer-events: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .visual-card__body {
+      padding: 1.25rem 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .visual-card__title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 0.45rem;
+      font-family: var(--font-display);
+    }
+
+    .visual-card__desc {
+      font-size: 0.91rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    /* Grid para Sección de Definición */
+    .definition-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--space-4);
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .definition-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .highlight-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .highlight-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      background: rgba(79, 124, 130, 0.1);
+      border: 1px solid rgba(79, 124, 130, 0.25);
+      color: var(--primary-dark);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Grid para Sección de Objetivos */
+    .objectives-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--space-4);
+      align-items: stretch;
+    }
+
+    @media (max-width: 920px) {
+      .objectives-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .objective-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 0.9rem 1.15rem;
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .objective-card:hover {
+      transform: translateX(4px);
+      border-color: var(--accent-dark);
+    }
+
+    .objective-card__icon {
+      color: var(--accent-dark);
+      font-size: 1.2rem;
+      line-height: 1;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    .objective-card__text {
+      margin: 0;
+      font-size: 0.93rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Sección de Características */
+    .characteristics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .char-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.3rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .char-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(20, 52, 64, 0.08);
+    }
+
+    .char-card__num {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .char-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      color: var(--primary-dark);
+    }
+
+    .char-card p {
+      font-size: 0.91rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Subprocesos: Bloques Detallados */
+    .subproc-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: var(--space-4);
+      margin-bottom: var(--space-4);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+    }
+
+    .subproc-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .subproc-badge {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--primary);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .subproc-header h3 {
+      font-size: 1.45rem;
+      color: var(--primary-dark);
+      margin: 0;
+    }
+
+    .subproc-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      align-items: start;
+    }
+
+    @media (max-width: 880px) {
+      .subproc-grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Listas con viñetas estilizadas */
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin: 0.85rem 0;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 1.3rem;
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .feature-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent-dark);
+      font-size: 1.3rem;
+      line-height: 1;
+      top: -0.1rem;
+    }
+
+    /* Caja de Ejemplo Aplicado */
+    .example-box {
+      margin-top: 1.2rem;
+      padding: 1rem 1.25rem;
+      background: var(--background);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.92rem;
+    }
+
+    .example-box strong {
+      color: var(--primary-dark);
+      display: block;
+      margin-bottom: 0.3rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+    }
+
+    .example-box p {
+      margin: 0;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    /* Diagrama de Relación entre Subprocesos */
+    .rel-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 880px) {
+      .rel-flow-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .rel-flow-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .rel-flow-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      transition: transform var(--transition), border-color var(--transition);
+      position: relative;
+    }
+
+    .rel-flow-card:hover {
+      transform: translateY(-3px);
+      border-top-color: var(--accent);
+    }
+
+    .rel-flow-card__step {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: var(--accent-dark);
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .rel-flow-card h4 {
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .rel-flow-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Grilla de Importancia / Beneficios */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .benefit-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .benefit-item:hover {
+      transform: translateX(4px);
+      border-color: var(--secondary);
+    }
+
+    .benefit-icon {
+      font-size: 1.35rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .benefit-text {
+      font-size: 0.92rem;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    /* Modal Visor / Lightbox */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 25, 32, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-modal.is-open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-container {
+      position: relative;
+      max-width: 90vw;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: lightboxZoom 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes lightboxZoom {
+      from {
+        transform: scale(0.92);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .lightbox-container img {
+      max-width: 90vw;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-caption {
+      margin-top: 14px;
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -18px;
+      right: -18px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #143440;
+      border: 2px solid #fff;
+      font-size: 24px;
+      font-weight: bold;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .lightbox-close:hover {
+      transform: scale(1.1);
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    /* Referencias Bibliográficas */
+    .reference-item a {
+      color: var(--primary);
+      font-weight: 600;
+      word-break: break-all;
+      text-decoration: underline;
+    }
+
+    .reference-item a:hover {
+      color: var(--accent-dark);
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <!-- MIGAS DE PAN -->
+    <nav class="breadcrumb container" aria-label="Ruta de navegación">
+      <a href="../index.html">Inicio</a>
+      <span class="sep">/</span>
+      <span aria-current="page">Desarrollar personas</span>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="process-hero">
+      <div class="container">
+        <div class="process-hero-top">
+          <div>
+            <span class="process-number">Proceso 05 de 08</span>
+            <h1>Procesos para desarrollar a las personas</h1>
+            <p class="process-hero-desc">
+              Conjunto de estrategias y actividades que realizan las organizaciones para fortalecer los conocimientos,
+              habilidades, competencias y capacidades de sus colaboradores, impulsando el aprendizaje continuo y la gestión del conocimiento.
+            </p>
+            <div class="responsibles">
+              <span class="chip">Julieth Triana González</span>
+              <span class="chip">Gabriela Torres Méndez</span>
+            </div>
+          </div>
+          <div class="process-glyph" aria-hidden="true">05</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEFINICIÓN -->
+    <section class="section" id="definicion">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Fundamento conceptual</span>
+          <h2>Definición del proceso</h2>
+        </div>
+
+        <div class="definition-grid">
+          <div>
+            <div class="definition-block" style="grid-template-columns: 1fr; margin-bottom: 1.2rem;">
+              <p class="lead-quote">
+                "Los procesos para desarrollar a las personas son el conjunto de estrategias y actividades que realizan las organizaciones para fortalecer los conocimientos, habilidades, competencias y capacidades de sus colaboradores."
+              </p>
+            </div>
+            <p>
+              Estos procesos buscan mejorar el desempeño de los trabajadores, promover su crecimiento profesional y prepararlos para asumir nuevos retos dentro de la organización. También permiten que las empresas se adapten a los cambios y aprovechen mejor el conocimiento de sus colaboradores.
+            </p>
+            <div class="highlight-pill-group">
+              <span class="highlight-pill">🚀 Crecimiento profesional</span>
+              <span class="highlight-pill">🧠 Gestión del conocimiento</span>
+              <span class="highlight-pill">📈 Alto desempeño</span>
+              <span class="highlight-pill">🔄 Adaptación al cambio</span>
+            </div>
+          </div>
+
+          <!-- IMG 1: DEFINICIÓN / DESARROLLO -->
+          <div>
+            <article class="visual-card reveal"
+              data-lightbox="../img/Pantalla_5/desarrollar-definicion.jpg"
+              data-caption="IMG 1: Desarrollo de personas — Fortalecimiento de conocimientos, habilidades y trabajo colaborativo para la innovación.">
+              <div class="visual-card__media">
+                <span class="visual-badge">IMG 1 · Desarrollo Integral</span>
+                <img src="../img/Pantalla_5/desarrollar-definicion.jpg"
+                  alt="Equipo colaborativo trabajando en torno a ideas, formación e innovación"
+                  onerror="this.onerror=null; this.src='https://i.pinimg.com/736x/d0/96/10/d09610541bcd17745bd0b2154cd5e7b3.jpg';">
+                <span class="zoom-hint">🔍 Clic para ampliar</span>
+              </div>
+              <div class="visual-card__body">
+                <h3 class="visual-card__title">Fortalecimiento del Potencial Humano</h3>
+                <p class="visual-card__desc">
+                  Impulso del aprendizaje colectivo, la generación de ideas y la actualización de competencias estratégicas.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJETIVOS -->
+    <section class="section section--alt" id="objetivos">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Metas formativas</span>
+          <h2>Objetivo del proceso</h2>
+          <p>
+            El <strong>objetivo principal</strong> es fortalecer las competencias de los colaboradores para mejorar su desempeño y contribuir al cumplimiento de los objetivos de la organización.
+          </p>
+        </div>
+
+        <div class="objectives-layout">
+          <!-- LISTA DE OBJETIVOS ESPECÍFICOS -->
+          <div class="objective-list">
+            <div class="objective-card reveal">
+              <span class="objective-card__icon">✓</span>
+              <p class="objective-card__text">
+                <strong>Mejorar los conocimientos y habilidades</strong> de los trabajadores para su labor cotidiana.
+              </p>
+            </div>
+
+            <div class="objective-card reveal">
+              <span class="objective-card__icon">✓</span>
+              <p class="objective-card__text">
+                <strong>Promover el aprendizaje continuo</strong> a lo largo de toda la trayectoria laboral.
+              </p>
+            </div>
+
+            <div class="objective-card reveal">
+              <span class="objective-card__icon">✓</span>
+              <p class="objective-card__text">
+                <strong>Preparar a los colaboradores</strong> para nuevos cargos, desafíos y responsabilidades.
+              </p>
+            </div>
+
+            <div class="objective-card reveal">
+              <span class="objective-card__icon">✓</span>
+              <p class="objective-card__text">
+                <strong>Facilitar la adaptación</strong> a los cambios tecnológicos, culturales y organizacionales.
+              </p>
+            </div>
+
+            <div class="objective-card reveal">
+              <span class="objective-card__icon">✓</span>
+              <p class="objective-card__text">
+                <strong>Mejorar la productividad y calidad</strong> del trabajo en todas las áreas.
+              </p>
+            </div>
+
+            <div class="objective-card reveal">
+              <span class="objective-card__icon">✓</span>
+              <p class="objective-card__text">
+                <strong>Favorecer el crecimiento profesional</strong> y la autorrealización del trabajador.
+              </p>
+            </div>
+
+            <div class="objective-card reveal">
+              <span class="objective-card__icon">✓</span>
+              <p class="objective-card__text">
+                <strong>Compartir y conservar el conocimiento</strong> clave dentro de la organización.
+              </p>
+            </div>
+
+            <div class="objective-card reveal">
+              <span class="objective-card__icon">✓</span>
+              <p class="objective-card__text">
+                <strong>Preparar a los trabajadores</strong> para las necesidades futuras y de sostenibilidad de la empresa.
+              </p>
+            </div>
+          </div>
+
+          <!-- IMG 2: OBJETIVOS / PRODUCTIVIDAD Y EQUIPO -->
+          <div>
+            <article class="visual-card reveal"
+              data-lightbox="../img/Pantalla_5/objetivos-desarrollo.jpg"
+              data-caption="IMG 2: Objetivos del desarrollo — Fortalecimiento del desempeño y alineación estratégica de equipos.">
+              <div class="visual-card__media">
+                <span class="visual-badge visual-badge--accent">IMG 2 · Metas de Desempeño</span>
+                <img src="../img/Pantalla_5/objetivos-desarrollo.jpg"
+                  alt="Equipo de trabajo en sala de juntas colaborando en metas y desarrollo profesional"
+                  onerror="this.onerror=null; this.src='https://i.pinimg.com/736x/29/b7/f5/29b7f5cbcb6eade45f70f646dda6030b.jpg';">
+                <span class="zoom-hint">🔍 Clic para ampliar</span>
+              </div>
+              <div class="visual-card__body">
+                <h3 class="visual-card__title">Alineación Estratégica del Talento</h3>
+                <p class="visual-card__desc">
+                  Equipos motivados y preparados técnicamente para responder a los objetivos de productividad y crecimiento institucional.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARACTERÍSTICAS -->
+    <section class="section" id="caracteristicas">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Pilares formativos</span>
+          <h2>Características del desarrollo humano</h2>
+          <p>Principios esenciales que orientan la inversión formativa y el aprendizaje en las organizaciones modernas.</p>
+        </div>
+
+        <div class="characteristics-grid">
+          <div class="char-card reveal">
+            <span class="char-card__num">01</span>
+            <h3>Continuos</h3>
+            <p>El desarrollo de las personas debe mantenerse durante toda su vida laboral y no limitarse a una capacitación específica.</p>
+          </div>
+
+          <div class="char-card reveal">
+            <span class="char-card__num">02</span>
+            <h3>Estratégicos</h3>
+            <p>Las actividades de formación y desarrollo deben estar relacionadas con las necesidades y objetivos de la organización.</p>
+          </div>
+
+          <div class="char-card reveal">
+            <span class="char-card__num">03</span>
+            <h3>Orientados al crecimiento</h3>
+            <p>Buscan mejorar el desempeño actual y preparar a los colaboradores para asumir nuevos retos y responsabilidades.</p>
+          </div>
+
+          <div class="char-card reveal">
+            <span class="char-card__num">04</span>
+            <h3>Basados en competencias</h3>
+            <p>Permiten fortalecer conocimientos, habilidades, actitudes y comportamientos necesarios para realizar adecuadamente las funciones laborales.</p>
+          </div>
+
+          <div class="char-card reveal">
+            <span class="char-card__num">05</span>
+            <h3>Adaptables</h3>
+            <p>Deben responder a los cambios tecnológicos, sociales y económicos que afectan al mundo laboral contemporáneo.</p>
+          </div>
+
+          <div class="char-card reveal">
+            <span class="char-card__num">06</span>
+            <h3>Participativos</h3>
+            <p>El trabajador debe participar activamente en su propio proceso de aprendizaje, autogestión y desarrollo personal.</p>
+          </div>
+
+          <div class="char-card reveal">
+            <span class="char-card__num">07</span>
+            <h3>Orientados al conocimiento</h3>
+            <p>Permiten crear, compartir, conservar y utilizar el conocimiento que existe dentro de la organización.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBPROCESOS PARA DESARROLLAR A LAS PERSONAS -->
+    <section class="section section--alt" id="subprocesos">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Desarrollo metodológico</span>
+          <h2>Subprocesos para desarrollar a las personas</h2>
+          <p>Cuatro ejes articulados: Formación, Desarrollo, Aprendizaje y Administración del Conocimiento.</p>
+        </div>
+
+        <!-- 1. FORMACIÓN -->
+        <div class="subproc-block reveal">
+          <div class="subproc-header">
+            <span class="subproc-badge">1</span>
+            <div>
+              <h3>1. Formación</h3>
+              <span class="text-muted" style="font-size:0.9rem;">Adquisición de conocimientos y destrezas para el cargo actual</span>
+            </div>
+          </div>
+
+          <p>
+            La <strong>formación</strong> es el proceso mediante el cual los colaboradores adquieren o fortalecen conocimientos, habilidades y competencias necesarias para desempeñar adecuadamente sus funciones.
+          </p>
+          <p>
+            <strong>Modalidades de formación:</strong> Puede realizarse mediante cursos, talleres, capacitaciones, seminarios, entrenamientos, inducciones y programas de actualización.
+          </p>
+
+          <div class="example-box">
+            <strong>Ejemplo práctico de Formación:</strong>
+            <p>
+              Una empresa implementa una capacitación para enseñar a sus empleados a utilizar un nuevo programa informático que será utilizado en sus actividades laborales.
+            </p>
+          </div>
+
+          <h4 style="font-size: 1.02rem; margin: 1.3rem 0 0.5rem; color: var(--primary-dark);">¿Para qué sirve la formación?</h4>
+          <ul class="feature-list">
+            <li>Mejorar el desempeño laboral cotidiano.</li>
+            <li>Actualizar conocimientos frente a estándares vigentes.</li>
+            <li>Desarrollar nuevas habilidades técnicas y procedimentales.</li>
+            <li>Facilitar la adaptación a nuevos procesos y herramientas.</li>
+            <li>Preparar a los trabajadores para cambios en sus funciones.</li>
+          </ul>
+        </div>
+
+        <!-- 2. DESARROLLO -->
+        <div class="subproc-block reveal">
+          <div class="subproc-header">
+            <span class="subproc-badge">2</span>
+            <div>
+              <h3>2. Desarrollo</h3>
+              <span class="text-muted" style="font-size:0.9rem;">Crecimiento profesional a mediano y largo plazo</span>
+            </div>
+          </div>
+
+          <div class="subproc-grid-2">
+            <div>
+              <p>
+                El <strong>desarrollo</strong> busca fortalecer las capacidades de los colaboradores a mediano y largo plazo, preparándolos para asumir nuevos desafíos, cargos y responsabilidades dentro de la organización.
+              </p>
+              <p>
+                A diferencia de una capacitación puntual, el desarrollo tiene una visión más amplia y está directamente relacionado con el crecimiento profesional y plan de carrera del trabajador.
+              </p>
+              <h4 style="font-size: 1.02rem; margin: 1.1rem 0 0.5rem; color: var(--primary-dark);">Estrategias que puede incluir:</h4>
+              <ul class="feature-list">
+                <li>Planes de carrera y sucesión.</li>
+                <li>Programas de liderazgo y habilidades directivas.</li>
+                <li>Mentorías y acompañamiento personalizado.</li>
+                <li>Coaching ejecutivo y de desempeño.</li>
+                <li>Rotación de puestos y asignaciones especiales.</li>
+                <li>Preparación sistemática para cargos de mayor responsabilidad.</li>
+              </ul>
+
+              <div class="example-box">
+                <strong>Ejemplo práctico de Desarrollo:</strong>
+                <p>
+                  Una empresa identifica que una trabajadora tiene potencial para convertirse en líder de un equipo. Por esta razón, le brinda formación en liderazgo, comunicación, resolución de conflictos y toma de decisiones.
+                </p>
+              </div>
+            </div>
+
+            <!-- IMG 3: SUBPROCESOS / APRENDIZAJE Y CELEBRACIÓN -->
+            <div>
+              <article class="visual-card"
+                data-lightbox="../img/Pantalla_5/subprocesos-aprendizaje.jpg"
+                data-caption="IMG 3: Subprocesos de formación y desarrollo — Aprendizaje colaborativo, superación de retos y logro compartido.">
+                <div class="visual-card__media">
+                  <span class="visual-badge">IMG 3 · Subprocesos</span>
+                  <img src="../img/Pantalla_5/subprocesos-aprendizaje.jpg"
+                    alt="Equipo celebrando el crecimiento personal, el aprendizaje y los logros formativos"
+                    onerror="this.onerror=null; this.src='https://i.pinimg.com/736x/44/bb/fa/44bbfa77b3d0279129c3cb572065fd35.jpg';">
+                  <span class="zoom-hint">🔍 Clic para ampliar</span>
+                </div>
+                <div class="visual-card__body">
+                  <h3 class="visual-card__title">Crecimiento y Éxito Compartido</h3>
+                  <p class="visual-card__desc">
+                    El desarrollo profesional genera compromiso, satisfacción laboral y equipos con alta capacidad de liderazgo y resiliencia.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. APRENDIZAJE -->
+        <div class="subproc-block reveal">
+          <div class="subproc-header">
+            <span class="subproc-badge">3</span>
+            <div>
+              <h3>3. Aprendizaje</h3>
+              <span class="text-muted" style="font-size:0.9rem;">Apropiación continua formal e informal de saberes y conductas</span>
+            </div>
+          </div>
+
+          <p>
+            El <strong>aprendizaje</strong> es el proceso mediante el cual las personas adquieren y desarrollan conocimientos, habilidades y comportamientos a través de la formación, la experiencia y la interacción con otras personas.
+          </p>
+          <p>
+            Dentro de una organización, el aprendizaje puede darse tanto de manera <strong>formal</strong> (estructurada en programas) como <strong>informal</strong> (en la dinámica cotidiana).
+          </p>
+
+          <h4 style="font-size: 1.02rem; margin: 1.1rem 0 0.5rem; color: var(--primary-dark);">Formas de aprendizaje:</h4>
+          <div class="grid grid-2" style="margin-bottom: 1.2rem;">
+            <ul class="feature-list">
+              <li>Cursos y capacitaciones estructuradas.</li>
+              <li>Experiencia directa en el puesto de trabajo.</li>
+              <li>Aprendizaje colaborativo entre compañeros.</li>
+              <li>Retroalimentación constructiva de líderes y pares.</li>
+            </ul>
+            <ul class="feature-list">
+              <li>Cursos virtuales y plataformas de e-learning.</li>
+              <li>Autoaprendizaje e investigación autodirigida.</li>
+              <li>Resolución colaborativa de problemas complejos.</li>
+              <li>Experiencias laborales y proyectos interdisciplinarios.</li>
+            </ul>
+          </div>
+
+          <div class="example-box">
+            <strong>Ejemplo práctico de Aprendizaje:</strong>
+            <p>
+              Un trabajador aprende a solucionar un problema de un sistema informático observando a un compañero con mayor experiencia. Posteriormente, utiliza ese conocimiento cuando se presenta una situación similar.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4. ADMINISTRACIÓN DEL CONOCIMIENTO -->
+        <div class="subproc-block reveal">
+          <div class="subproc-header">
+            <span class="subproc-badge">4</span>
+            <div>
+              <h3>4. Administración del Conocimiento</h3>
+              <span class="text-muted" style="font-size:0.9rem;">Preservación, transferencia y aprovechamiento del capital intelectual</span>
+            </div>
+          </div>
+
+          <div class="subproc-grid-2">
+            <div>
+              <p>
+                La <strong>administración del conocimiento</strong> consiste en identificar, organizar, conservar, compartir y utilizar el conocimiento que poseen las personas y la organización.
+              </p>
+              <p>
+                Su finalidad es <strong>evitar que conocimientos importantes se pierdan</strong> y lograr que puedan ser aprovechados por todos los colaboradores para generar valor sostenido.
+              </p>
+
+              <h4 style="font-size: 1.02rem; margin: 1.1rem 0 0.5rem; color: var(--primary-dark);">Actividades que incluye:</h4>
+              <ul class="feature-list">
+                <li>Identificar conocimientos críticos de la empresa.</li>
+                <li>Crear y adquirir nuevos conocimientos e innovaciones.</li>
+                <li>Organizar y sistematizar información relevante.</li>
+                <li>Elaborar manuales, protocolos y procedimientos.</li>
+                <li>Compartir experiencias y buenas prácticas entre trabajadores.</li>
+                <li>Documentar lecciones aprendidas tras proyectos.</li>
+                <li>Utilizar herramientas, repositorios y plataformas digitales.</li>
+                <li>Transferir conocimientos entre áreas y colaboradores.</li>
+                <li>Conservar el conocimiento estratégico de trabajadores que se retiran.</li>
+              </ul>
+
+              <div class="example-box">
+                <strong>Ejemplo práctico de Administración del Conocimiento:</strong>
+                <p>
+                  Un trabajador lleva varios años realizando un procedimiento específico y está próximo a retirarse. La empresa documenta su experiencia y crea un manual para que otros empleados puedan aprender y continuar realizando correctamente el procedimiento.
+                </p>
+              </div>
+            </div>
+
+            <!-- IMG 4: GESTIÓN DEL CONOCIMIENTO -->
+            <div>
+              <article class="visual-card"
+                data-lightbox="../img/Pantalla_5/administracion-conocimiento.jpg"
+                data-caption="IMG 4: Administración del conocimiento — Redes de saberes, comunicación, transferencia digital y capital humano.">
+                <div class="visual-card__media">
+                  <span class="visual-badge visual-badge--accent">IMG 4 · Gestión del Conocimiento</span>
+                  <img src="../img/Pantalla_5/administracion-conocimiento.jpg"
+                    alt="Comunidad organizacional compartiendo ideas, tecnología, comunicación y conocimiento"
+                    onerror="this.onerror=null; this.src='https://i.pinimg.com/736x/3c/78/76/3c7876c82b9694bfabfafa4ba3b13e60.jpg';">
+                  <span class="zoom-hint">🔍 Clic para ampliar</span>
+                </div>
+                <div class="visual-card__body">
+                  <h3 class="visual-card__title">Capital Intelectual Compartido</h3>
+                  <p class="visual-card__desc">
+                    El conocimiento compartido y preservado en manuales, tecnologías y cultura organizacional se convierte en la mayor ventaja competitiva.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- ¿CÓMO SE RELACIONAN LOS SUBPROCESOS? -->
+        <div class="subproc-block reveal" style="border-left: 5px solid var(--primary); background: #fdfdfc;">
+          <h3 style="font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 0.5rem;">
+            ¿Cómo se relacionan los subprocesos?
+          </h3>
+          <p class="text-muted" style="font-size: 0.94rem; margin-bottom: 1.2rem;">
+            Los cuatro subprocesos están íntimamente conectados entre sí y forman un ciclo formativo continuo:
+          </p>
+
+          <div class="rel-flow-grid">
+            <div class="rel-flow-card">
+              <span class="rel-flow-card__step">Fase 1</span>
+              <h4>Formación</h4>
+              <p>Permite adquirir conocimientos y habilidades iniciales y técnicas para el puesto.</p>
+            </div>
+
+            <div class="rel-flow-card">
+              <span class="rel-flow-card__step">Fase 2</span>
+              <h4>Desarrollo</h4>
+              <p>Fortalece esas capacidades y prepara al trabajador para nuevos retos y liderazgos.</p>
+            </div>
+
+            <div class="rel-flow-card">
+              <span class="rel-flow-card__step">Fase 3</span>
+              <h4>Aprendizaje</h4>
+              <p>Permite aplicar, adaptar y mejorar continuamente lo aprendido en la práctica cotidiana.</p>
+            </div>
+
+            <div class="rel-flow-card">
+              <span class="rel-flow-card__step">Fase 4</span>
+              <h4>Adm. del Conocimiento</h4>
+              <p>Permite conservar, documentar y compartir lo aprendido dentro de toda la organización.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- IMPORTANCIA EN LAS ORGANIZACIONES -->
+    <section class="section" id="importancia">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Impacto estratégico</span>
+          <h2>Importancia en las organizaciones</h2>
+          <p>
+            Los procesos para desarrollar a las personas son fundamentales porque permiten que tanto los trabajadores como las organizaciones crezcan, innoven y se adapten proactivamente a las transformaciones del entorno.
+          </p>
+        </div>
+
+        <p style="font-size: 1.02rem; font-weight: 600; color: var(--primary-dark); margin-bottom: 1rem;">
+          Una adecuada gestión del desarrollo humano contribuye directamente a:
+        </p>
+
+        <div class="benefits-grid">
+          <div class="benefit-item reveal">
+            <span class="benefit-icon">📈</span>
+            <span class="benefit-text">Mejorar el desempeño laboral</span>
+          </div>
+
+          <div class="benefit-item reveal">
+            <span class="benefit-icon">⚡</span>
+            <span class="benefit-text">Incrementar la productividad</span>
+          </div>
+
+          <div class="benefit-item reveal">
+            <span class="benefit-icon">🎯</span>
+            <span class="benefit-text">Fortalecer las competencias clave</span>
+          </div>
+
+          <div class="benefit-item reveal">
+            <span class="benefit-icon">💡</span>
+            <span class="benefit-text">Promover la innovación constante</span>
+          </div>
+
+          <div class="benefit-item reveal">
+            <span class="benefit-icon">🔄</span>
+            <span class="benefit-text">Facilitar la adaptación al cambio</span>
+          </div>
+
+          <div class="benefit-item reveal">
+            <span class="benefit-icon">🤝</span>
+            <span class="benefit-text">Mejorar el trabajo en equipo</span>
+          </div>
+
+          <div class="benefit-item reveal">
+            <span class="benefit-icon">👑</span>
+            <span class="benefit-text">Preparar futuros líderes</span>
+          </div>
+
+          <div class="benefit-item reveal">
+            <span class="benefit-icon">📚</span>
+            <span class="benefit-text">Conservar el conocimiento organizacional</span>
+          </div>
+
+          <div class="benefit-item reveal">
+            <span class="benefit-icon">🌱</span>
+            <span class="benefit-text">Favorecer el crecimiento profesional</span>
+          </div>
+
+          <div class="benefit-item reveal">
+            <span class="benefit-icon">🛡️</span>
+            <span class="benefit-text">Aumentar la capacidad de respuesta</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCIAS BIBLIOGRÁFICAS -->
+    <section class="section section--alt" id="referencias">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Fundamentación Teórica</span>
+          <h2>Referencias bibliográficas</h2>
+          <p>Normas y directrices internacionales que sustentan el aprendizaje permanente y la gestión del conocimiento.</p>
+        </div>
+
+        <div class="reference-list">
+          <div class="reference-item reveal">
+            Organización Internacional del Trabajo. (2004).
+            <em>Recomendación sobre el desarrollo de los recursos humanos, 2004 (núm. 195).</em>
+            Oficina Internacional del Trabajo (OIT).
+            <br>
+            <a href="https://www.ilo.org/dyn/normlex/es/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:R195"
+              target="_blank" rel="noopener noreferrer">https://www.ilo.org/dyn/normlex/es/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:R195</a>
+          </div>
+
+          <div class="reference-item reveal">
+            Organización Internacional del Trabajo. (2026).
+            <em>Lifelong learning and skills for the future.</em>
+            Oficina Internacional del Trabajo (OIT).
+            <br>
+            <a href="https://www.ilo.org/es" target="_blank" rel="noopener noreferrer">https://www.ilo.org/es</a>
+          </div>
+
+          <div class="reference-item reveal">
+            International Organization for Standardization. (2018).
+            <em>ISO 30401:2018: Knowledge management systems — Requirements.</em>
+            ISO.
+            <br>
+            <a href="https://www.iso.org/standard/68053.html"
+              target="_blank" rel="noopener noreferrer">https://www.iso.org/standard/68053.html</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAVEGACIÓN ENTRE PROCESOS -->
+    <section class="section">
+      <div class="container">
+        <div class="process-pager">
+          <a class="pager-link prev" href="recompensar-personas.html">
+            <span class="dir">← Anterior</span>
+            <span class="title">Recompensar personas</span>
+          </a>
+          <a class="pager-link next" href="retener-personas.html">
+            <span class="dir">Siguiente →</span>
+            <span class="title">Retener personas</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL LIGHTBOX PARA VISUALIZACIÓN DE IMÁGENES -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true"
+    aria-label="Visor ampliado de imagen">
+    <div class="lightbox-container">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar visor">✕</button>
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/main.js"></script>
+
+  <!-- SCRIPT PARA EL VISOR LIGHTBOX -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var modal = document.getElementById("lightbox-modal");
+      var modalImg = document.getElementById("lightbox-img");
+      var modalCaption = document.getElementById("lightbox-caption");
+      var closeBtn = document.getElementById("lightbox-close");
+
+      function openLightbox(src, caption) {
+        if (!modal || !modalImg) return;
+        modalImg.src = src;
+        modalImg.alt = caption || "Imagen ampliada";
+        modalCaption.textContent = caption || "";
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        if (!modal) return;
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        setTimeout(function () {
+          if (modalImg) modalImg.src = "";
+        }, 250);
+      }
+
+      // Conectar todos los elementos con data-lightbox
+      document.querySelectorAll("[data-lightbox]").forEach(function (el) {
+        el.addEventListener("click", function (e) {
+          e.preventDefault();
+          var src = this.getAttribute("data-lightbox");
+          var caption = this.getAttribute("data-caption") || "";
+          openLightbox(src, caption);
+        });
+      });
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          closeLightbox();
+        });
+      }
+
+      if (modal) {
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal || e.target.classList.contains("lightbox-container")) {
+            closeLightbox();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal && modal.classList.contains("is-open")) {
+          closeLightbox();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
