@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión Humana | Ecosistema Estratégico de Procesos Organizacionales</title>
+  <meta name="description"
+    content="Plataforma académica e interactiva sobre los ocho procesos estratégicos de la Gestión Humana: competencias, organización, integración, recompensas, desarrollo, retención, auditoría y clima laboral. Alianza UNAB · UNISANGIL.">
+  <link rel="icon" href="img/logo-unisangil.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+
+    <!-- ==========================================================================
+         HERO MESH — ESTILO VECTOR TEMPLATE CON PALETA INSTITUCIONAL
+         ========================================================================== -->
+    <section class="hero-mesh-stage" id="hero">
+
+      <!-- Degradado Líquido Mesh Gradient con colores del proyecto -->
+      <div class="mesh-liquid-canvas" aria-hidden="true">
+        <div class="mesh-blob mesh-blob-primary"></div>
+        <div class="mesh-blob mesh-blob-unisangil"></div>
+        <div class="mesh-blob mesh-blob-accent"></div>
+        <div class="mesh-blob mesh-blob-unab"></div>
+        <div class="mesh-blob mesh-blob-secondary"></div>
+        <div class="mesh-blob mesh-blob-glow"></div>
+      </div>
+
+      <!-- Puntos de Matriz decorativos (como en la imagen de referencia) -->
+      <div class="mesh-dot-matrix mesh-dots-top" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+      <div class="mesh-dot-matrix mesh-dots-bottom" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <!-- Rayas Diagonales Inferiores Derechas (//////) como en la plantilla -->
+      <div class="mesh-stripes-accent mesh-stripes-bottom" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+
+      <div class="container">
+        <!-- Barra Superior Integrada con Logos UNISANGIL y UNAB -->
+        <div class="mesh-topbar">
+          <div class="mesh-logos-capsule">
+            <img src="img/logo-unisangil.png" alt="Logotipo UNISANGIL" class="mesh-logo-img-unisangil">
+            <span class="mesh-logo-divider"></span>
+            <img src="img/logo-unab.jpeg" alt="Logotipo UNAB" class="mesh-logo-img-unab">
+            <div class="mesh-logo-labels">
+              <strong>Alianza UNAB · UNISANGIL</strong>
+              <span>Psicología Organizacional</span>
+            </div>
+          </div>
+
+          <nav class="mesh-top-nav" aria-label="Navegación hero">
+            <a href="#procesos">Procesos</a>
+            <a href="#fundamentos">Fundamentos</a>
+            <a href="#mapa">Mapa Sistémico</a>
+            <a href="#equipo">Autores</a>
+          </nav>
+
+          <div class="mesh-search-box">
+            <div class="mesh-search-input-wrap">
+              <span class="mesh-search-icon" aria-hidden="true">🔍</span>
+              <input type="text" id="process-search-input" placeholder="Buscar procesos o temas..." autocomplete="off"
+                aria-label="Buscar en los procesos de gestión humana">
+              <button type="button" id="clear-search-btn" class="clear-search-btn" aria-label="Limpiar búsqueda"
+                style="display:none;">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cuerpo Central del Hero (Estilo "SHOP NOW / DISCOUNT 30%") -->
+        <div class="mesh-hero-body">
+          <div class="mesh-hero-headline-group">
+
+            <!-- Rayas Diagonales Superiores como en la imagen -->
+            <div class="mesh-stripes-accent mesh-stripes-top-elem" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+
+            <!-- Título Gigante en Itálica Mayúscula -->
+            <h1 class="mesh-hero-title">GESTIÓN HUMANA</h1>
+
+            <!-- Subtítulo Destacado -->
+            <div class="mesh-hero-subtitle">8 PROCESOS ESTRATÉGICOS</div>
+
+            <!-- Línea Horizontal Sólida idéntica a la imagen de referencia -->
+            <div class="mesh-horizontal-rule"></div>
+
+            <!-- Bloque Inferior con Texto, Botón MORE INFO y Flechas ◄ ► -->
+            <div class="mesh-lower-row">
+              <p class="mesh-lede-paragraph">
+                Ecosistema digital interactivo y fundamentado para comprender, diagnosticar y proyectar los ocho
+                procesos medulares del talento humano y la cultura en las organizaciones modernas.
+              </p>
+
+              <div class="mesh-actions-bar">
+                <a href="#procesos" class="mesh-btn-more">EXPLORAR PROCESOS</a>
+
+                <!-- Flechas ◄ ► de la plantilla -->
+                <div class="mesh-nav-arrows">
+                  <button type="button" id="mesh-prev-btn" class="mesh-arrow-btn"
+                    aria-label="Proceso anterior">◀</button>
+                  <button type="button" id="mesh-next-btn" class="mesh-arrow-btn"
+                    aria-label="Proceso siguiente">▶</button>
+                </div>
+              </div>
+
+              <!-- Spotlight dinámico sincronizado con las flechas ◄ ► -->
+              <div class="mesh-spotlight-pill" id="mesh-spotlight">
+                <div class="spotlight-info">
+                  <span class="spotlight-tag" id="spotlight-num">PROCESO 01</span>
+                  <div class="spotlight-text-group">
+                    <strong id="spotlight-title">Las Competencias</strong>
+                    <span id="spotlight-desc">Modelos de competencias laborales, saberes y evaluación diagnóstica del
+                      talento.</span>
+                  </div>
+                </div>
+                <a href="pantalla/competencias.html" id="spotlight-link" class="spotlight-btn-go">Ingresar →</a>
+              </div>
+
+              <!-- Chips de filtro directo -->
+              <div class="mesh-chips-tray">
+                <span class="mesh-chips-label">Filtro directo:</span>
+                <button type="button" class="quick-chip" data-search="competencias">Competencias</button>
+                <button type="button" class="quick-chip" data-search="organizar">Cargos & Roles</button>
+                <button type="button" class="quick-chip" data-search="integrar">Selección</button>
+                <button type="button" class="quick-chip" data-search="recompensar">Compensación</button>
+                <button type="button" class="quick-chip" data-search="desarrollar">Capacitación</button>
+                <button type="button" class="quick-chip" data-search="retener">Bienestar</button>
+                <button type="button" class="quick-chip" data-search="auditar">Sistemas SIRH</button>
+                <button type="button" class="quick-chip" data-search="clima">Clima Laboral</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         LOS 8 PROCESOS ESTRATÉGICOS — TARJETAS INTERACTIVAS
+         ========================================================================== -->
+    <section class="section" id="procesos">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Ruta Integral del Talento</span>
+          <h2>Los Ocho Procesos de la Gestión Humana</h2>
+          <p>Cada proceso articula bases teóricas, dimensiones aplicadas, casos prácticos y metodologías para una
+            administración organizacional de alto impacto.</p>
+        </div>
+
+        <div class="process-grid-epic" id="process-grid">
+
+          <!-- Proceso 1 -->
+          <a class="process-card-epic reveal" href="pantalla/competencias.html"
+            data-keywords="competencias habilidades saber hacer modelos conductual funcional constructivista perfiles evaluacion">
+            <div>
+              <div class="pcard-top">
+                <span class="pcard-num">PROCESO 01</span>
+                <div class="pcard-icon" aria-hidden="true">🎯</div>
+              </div>
+              <h3 class="pcard-title">Las Competencias</h3>
+              <p class="pcard-desc">Definiciones, clasificación y modelos científicos para identificar, diagnosticar y
+                proyectar el talento laboral.</p>
+              <div class="pcard-tags">
+                <span class="pcard-tag">Modelos de Competencias</span>
+                <span class="pcard-tag">Saber & Ser</span>
+                <span class="pcard-tag">Evaluación</span>
+              </div>
+            </div>
+            <div class="pcard-footer">
+              <span class="pcard-authors" title="Herrera · Lombana · Álvarez · Ortiz">Herrera · Lombana · Álvarez ·
+                Ortiz</span>
+              <span class="pcard-action">Entrar →</span>
+            </div>
+          </a>
+
+          <!-- Proceso 2 -->
+          <a class="process-card-epic reveal" href="pantalla/organizar-personas.html"
+            data-keywords="organizar diseño de cargos puestos roles funciones organigrama perfiles estructura evaluacion del desempeño">
+            <div>
+              <div class="pcard-top">
+                <span class="pcard-num">PROCESO 02</span>
+                <div class="pcard-icon" aria-hidden="true">🏛️</div>
+              </div>
+              <h3 class="pcard-title">Organizar Personas</h3>
+              <p class="pcard-desc">Arquitectura de puestos de trabajo, manuales de funciones, análisis de cargos y
+                evaluación sistemática del desempeño.</p>
+              <div class="pcard-tags">
+                <span class="pcard-tag">Diseño de Cargos</span>
+                <span class="pcard-tag">Estructura</span>
+                <span class="pcard-tag">Desempeño</span>
+              </div>
+            </div>
+            <div class="pcard-footer">
+              <span class="pcard-authors" title="Contreras · Delgado · Rodríguez · Vargas">Contreras · Delgado ·
+                Rodríguez · Vargas</span>
+              <span class="pcard-action">Entrar →</span>
+            </div>
+          </a>
+
+          <!-- Proceso 3 -->
+          <a class="process-card-epic reveal" href="pantalla/integrar-personas.html"
+            data-keywords="integrar reclutamiento seleccion atraccion talento entrevistas pruebas psicotecnicas hojas de vida induccion incorporacion">
+            <div>
+              <div class="pcard-top">
+                <span class="pcard-num">PROCESO 03</span>
+                <div class="pcard-icon" aria-hidden="true">🤝</div>
+              </div>
+              <h3 class="pcard-title">Integrar Personas</h3>
+              <p class="pcard-desc">Estrategias de atracción, fuentes de reclutamiento y técnicas especializadas de
+                selección para vincular el mejor talento.</p>
+              <div class="pcard-tags">
+                <span class="pcard-tag">Reclutamiento</span>
+                <span class="pcard-tag">Selección</span>
+                <span class="pcard-tag">Inducción</span>
+              </div>
+            </div>
+            <div class="pcard-footer">
+              <span class="pcard-authors" title="Torres · Triana">Torres · Triana</span>
+              <span class="pcard-action">Entrar →</span>
+            </div>
+          </a>
+
+          <!-- Proceso 4 -->
+          <a class="process-card-epic reveal" href="pantalla/recompensar-personas.html"
+            data-keywords="recompensar remuneracion salarios beneficios prestaciones incentivos motivacion compensacion equidad interna">
+            <div>
+              <div class="pcard-top">
+                <span class="pcard-num">PROCESO 04</span>
+                <div class="pcard-icon" aria-hidden="true">💎</div>
+              </div>
+              <h3 class="pcard-title">Recompensar Personas</h3>
+              <p class="pcard-desc">Estructuras salariales, incentivos estratégicos, planes de prestaciones y
+                compensación orientada al alto rendimiento.</p>
+              <div class="pcard-tags">
+                <span class="pcard-tag">Salarios & Beneficios</span>
+                <span class="pcard-tag">Incentivos</span>
+                <span class="pcard-tag">Equidad</span>
+              </div>
+            </div>
+            <div class="pcard-footer">
+              <span class="pcard-authors" title="Suárez · Jiménez · Aguirre · Pico">Suárez · Jiménez · Aguirre ·
+                Pico</span>
+              <span class="pcard-action">Entrar →</span>
+            </div>
+          </a>
+
+          <!-- Proceso 5 -->
+          <a class="process-card-epic reveal" href="pantalla/desarrollar-personas.html"
+            data-keywords="desarrollar formacion capacitacion entrenamiento planes de carrera aprendizaje gestion del conocimiento talento">
+            <div>
+              <div class="pcard-top">
+                <span class="pcard-num">PROCESO 05</span>
+                <div class="pcard-icon" aria-hidden="true">🚀</div>
+              </div>
+              <h3 class="pcard-title">Desarrollar Personas</h3>
+              <p class="pcard-desc">Formación continua, programas de capacitación, gestión del conocimiento y rutas de
+                crecimiento profesional.</p>
+              <div class="pcard-tags">
+                <span class="pcard-tag">Capacitación</span>
+                <span class="pcard-tag">Planes de Carrera</span>
+                <span class="pcard-tag">Aprendizaje</span>
+              </div>
+            </div>
+            <div class="pcard-footer">
+              <span class="pcard-authors" title="Torres · Triana">Torres · Triana</span>
+              <span class="pcard-action">Entrar →</span>
+            </div>
+          </a>
+
+          <!-- Proceso 6 -->
+          <a class="process-card-epic reveal" href="pantalla/retener-personas.html"
+            data-keywords="retener bienestar seguridad y salud en el trabajo sst higiene relaciones laborales ergonomia calidad de vida fidelizacion">
+            <div>
+              <div class="pcard-top">
+                <span class="pcard-num">PROCESO 06</span>
+                <div class="pcard-icon" aria-hidden="true">🛡️</div>
+              </div>
+              <h3 class="pcard-title">Retener Personas</h3>
+              <p class="pcard-desc">Programas de bienestar integral, seguridad y salud en el trabajo (SST), higiene
+                laboral y relaciones constructivas.</p>
+              <div class="pcard-tags">
+                <span class="pcard-tag">Bienestar & Salud</span>
+                <span class="pcard-tag">SST</span>
+                <span class="pcard-tag">Fidelización</span>
+              </div>
+            </div>
+            <div class="pcard-footer">
+              <span class="pcard-authors" title="Suárez · Jiménez · Aguirre · Pico">Suárez · Jiménez · Aguirre ·
+                Pico</span>
+              <span class="pcard-action">Entrar →</span>
+            </div>
+          </a>
+
+          <!-- Proceso 7 -->
+          <a class="process-card-epic reveal" href="pantalla/auditar-personas.html"
+            data-keywords="auditar auditoria banco de datos sirh sistemas de informacion metricas kpis control analitica seguimiento">
+            <div>
+              <div class="pcard-top">
+                <span class="pcard-num">PROCESO 07</span>
+                <div class="pcard-icon" aria-hidden="true">📊</div>
+              </div>
+              <h3 class="pcard-title">Auditar Personas</h3>
+              <p class="pcard-desc">Sistemas de información de recursos humanos (SIRH), bancos de datos, analítica de
+                métricas y evaluación de control.</p>
+              <div class="pcard-tags">
+                <span class="pcard-tag">Sistemas SIRH</span>
+                <span class="pcard-tag">Bancos de Datos</span>
+                <span class="pcard-tag">Métricas & KPIs</span>
+              </div>
+            </div>
+            <div class="pcard-footer">
+              <span class="pcard-authors" title="Yanfred Vera">Yanfred Vera</span>
+              <span class="pcard-action">Entrar →</span>
+            </div>
+          </a>
+
+          <!-- Proceso 8 -->
+          <a class="process-card-epic reveal" href="pantalla/clima-laboral.html"
+            data-keywords="clima laboral cultura ambiente organizacional liderazgo motivacion encuestas diagnostico satisfaccion">
+            <div>
+              <div class="pcard-top">
+                <span class="pcard-num">PROCESO 08</span>
+                <div class="pcard-icon" aria-hidden="true">🌟</div>
+              </div>
+              <h3 class="pcard-title">Clima Laboral</h3>
+              <p class="pcard-desc">Diagnóstico de percepciones colectivas, liderazgo, cultura compartida y factores que
+                elevan la satisfacción laboral.</p>
+              <div class="pcard-tags">
+                <span class="pcard-tag">Diagnóstico</span>
+                <span class="pcard-tag">Cultura</span>
+                <span class="pcard-tag">Encuestas de Clima</span>
+              </div>
+            </div>
+            <div class="pcard-footer">
+              <span class="pcard-authors" title="Herreño · Mejía">Herreño · Mejía</span>
+              <span class="pcard-action">Entrar →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         MARCO CONCEPTUAL & PILARES DE AUTOR
+         ========================================================================== -->
+
+    <!-- ==========================================================================
+         MAPA DE NAVEGACIÓN SISTÉMICO
+         ========================================================================== -->
+    <section class="section" id="mapa">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Interconexión de Procesos</span>
+          <h2>Ecosistema Sistémico de Navegación</h2>
+          <p>Un modelo holístico donde cada macroproceso interactúa armónicamente alrededor del eje central de las
+            personas y la misión institucional.</p>
+        </div>
+
+        <div class="navmap">
+          <div class="navmap-hub">GESTIÓN HUMANA ESTRATÉGICA</div>
+          <div class="navmap-line" aria-hidden="true"></div>
+          <div class="navmap-grid">
+            <a class="navmap-item reveal" href="pantalla/competencias.html">
+              <span class="n">Proceso 1</span>
+              <span class="t">Las competencias</span>
+              <span class="r">Herrera · Lombana · Álvarez · Ortiz</span>
+            </a>
+            <a class="navmap-item reveal" href="pantalla/organizar-personas.html">
+              <span class="n">Proceso 2</span>
+              <span class="t">Organizar personas</span>
+              <span class="r">Contreras · Delgado · Rodríguez · Vargas</span>
+            </a>
+            <a class="navmap-item reveal" href="pantalla/integrar-personas.html">
+              <span class="n">Proceso 3</span>
+              <span class="t">Integrar personas</span>
+              <span class="r">Torres · Triana</span>
+            </a>
+            <a class="navmap-item reveal" href="pantalla/recompensar-personas.html">
+              <span class="n">Proceso 4</span>
+              <span class="t">Recompensar personas</span>
+              <span class="r">Suárez · Jiménez · Aguirre · Pico</span>
+            </a>
+            <a class="navmap-item reveal" href="pantalla/desarrollar-personas.html">
+              <span class="n">Proceso 5</span>
+              <span class="t">Desarrollar personas</span>
+              <span class="r">Torres · Triana</span>
+            </a>
+            <a class="navmap-item reveal" href="pantalla/retener-personas.html">
+              <span class="n">Proceso 6</span>
+              <span class="t">Retener personas</span>
+              <span class="r">Suárez · Jiménez · Aguirre · Pico</span>
+            </a>
+            <a class="navmap-item reveal" href="pantalla/auditar-personas.html">
+              <span class="n">Proceso 7</span>
+              <span class="t">Auditar personas</span>
+              <span class="r">Yanfred Vera</span>
+            </a>
+            <a class="navmap-item reveal" href="pantalla/clima-laboral.html">
+              <span class="n">Proceso 8</span>
+              <span class="t">Clima Laboral</span>
+              <span class="r">Herreño · Mejía</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         EQUIPO DE AUTORES E INVESTIGADORES
+         ========================================================================== -->
+    <section class="section section--alt" id="equipo">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Consejo Académico</span>
+          <h2>Equipo de Autores e Investigadores</h2>
+          <p>Estudiantes del Programa de Psicología (UNAB EXT UNISANGIL) responsables de la investigación teórica,
+            análisis empírico y diseño pedagógico de cada dimensión.</p>
+        </div>
+
+        <div class="team-grid-epic">
+
+          <div class="team-card-epic reveal">
+            <span class="proc-num">Proceso 01</span>
+            <h3>Las competencias</h3>
+            <ul>
+              <li>Cielo Daniela Lombana Ardila</li>
+              <li>Natalia Herrera Muñoz</li>
+              <li>María Nicole Alvarez Ramirez</li>
+              <li>Geraldine Ortiz Rodríguez</li>
+            </ul>
+          </div>
+
+          <div class="team-card-epic reveal">
+            <span class="proc-num">Proceso 02</span>
+            <h3>Organizar personas</h3>
+            <ul>
+              <li>Adriana Contreras</li>
+              <li>Paula Delgado</li>
+              <li>Eva Rodríguez</li>
+              <li>Joysbed Vargas</li>
+            </ul>
+          </div>
+
+          <div class="team-card-epic reveal">
+            <span class="proc-num">Proceso 03</span>
+            <h3>Integrar personas</h3>
+            <ul>
+              <li>Julieth Triana González</li>
+              <li>Gabriela Torres Méndez</li>
+            </ul>
+          </div>
+
+          <div class="team-card-epic reveal">
+            <span class="proc-num">Proceso 04</span>
+            <h3>Recompensar personas</h3>
+            <ul>
+              <li>Karol Suárez</li>
+              <li>Nicole Jiménez</li>
+              <li>Lucila Aguirre</li>
+              <li>Luisa Pico</li>
+            </ul>
+          </div>
+
+          <div class="team-card-epic reveal">
+            <span class="proc-num">Proceso 05</span>
+            <h3>Desarrollar personas</h3>
+            <ul>
+              <li>Julieth Triana González</li>
+              <li>Gabriela Torres Méndez</li>
+            </ul>
+          </div>
+
+          <div class="team-card-epic reveal">
+            <span class="proc-num">Proceso 06</span>
+            <h3>Retener personas</h3>
+            <ul>
+              <li>Karol Suárez</li>
+              <li>Nicole Jiménez</li>
+              <li>Lucila Aguirre</li>
+              <li>Luisa Pico</li>
+            </ul>
+          </div>
+
+          <div class="team-card-epic reveal">
+            <span class="proc-num">Proceso 07</span>
+            <h3>Auditar personas</h3>
+            <ul>
+              <li>Yanfred Vera</li>
+            </ul>
+          </div>
+
+          <div class="team-card-epic reveal">
+            <span class="proc-num">Proceso 08</span>
+            <h3>Clima Laboral</h3>
+            <ul>
+              <li>Penélope Herreño</li>
+              <li>Nicool Mejía</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         LLAMADO A LA ACCIÓN FINAL
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-band reveal">
+          <div>
+            <h2>¿Listo para adentrarte en el ecosistema?</h2>
+            <p>Comienza tu recorrido explorando el Proceso 1: Las Competencias, o navega libremente por cualquiera de
+              las dimensiones del talento.</p>
+          </div>
+          <a class="btn btn-accent" href="pantalla/competencias.html">Iniciar con Las Competencias →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
