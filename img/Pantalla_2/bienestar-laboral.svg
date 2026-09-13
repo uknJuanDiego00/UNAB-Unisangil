@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Bienestar y escucha en el trabajo</title>
+  <desc id="desc">Ilustracion de una conversacion de apoyo psicologico en un entorno laboral.</desc>
+  <rect width="1200" height="800" rx="32" fill="#f3edf4"/>
+  <circle cx="940" cy="150" r="90" fill="#eadcf0"/><circle cx="190" cy="670" r="130" fill="#f7dca9"/>
+  <path d="M155 555h890" stroke="#143440" stroke-width="18" stroke-linecap="round"/>
+  <rect x="380" y="520" width="440" height="35" rx="17" fill="#4f7c82"/>
+  <g fill="#1f4e5f"><path d="M330 535c0-122 80-190 170-190s140 68 140 190z"/><path d="M665 535c0-106 75-170 155-170s135 64 135 170z"/></g>
+  <circle cx="500" cy="300" r="58" fill="#c98268"/><path d="M445 290c15-90 110-90 125 0-34-22-82-22-125 0" fill="#3b2830"/>
+  <circle cx="820" cy="310" r="54" fill="#8f5947"/><path d="M765 300c20-82 100-88 115-5-30-12-78-14-115 5" fill="#252b35"/>
+  <path d="M610 230c88-100 225-62 195 34-20 62-107 25-136 75-18-42-83-26-94-73-11-45 18-74 35-36z" fill="#fff" stroke="#d9a441" stroke-width="6"/>
+  <path d="M650 255c14-28 36-28 50 0 14-28 36-28 50 0-11 30-31 47-50 62-19-15-39-32-50-62z" fill="#d9a441"/>
+  <text x="600" y="720" text-anchor="middle" font-family="Arial,sans-serif" font-size="29" fill="#143440" font-weight="700">escuchar tambien es organizar</text>
+</svg>

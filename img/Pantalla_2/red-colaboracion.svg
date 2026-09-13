@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Red de colaboracion organizacional</title>
+  <desc id="desc">Ilustracion de personas conectadas en una red de colaboracion y confianza.</desc>
+  <rect width="1200" height="800" rx="32" fill="#eaf1f7"/>
+  <g stroke="#9bb9c1" stroke-width="10" stroke-linecap="round"><path d="M300 220 600 400 900 220M300 220 250 610M900 220 950 610M250 610 600 400 950 610M300 220 900 220"/></g>
+  <circle cx="600" cy="400" r="112" fill="#d9a441"/><circle cx="600" cy="400" r="66" fill="#fff3cf"/>
+  <path d="M565 420c10-46 60-46 70 0M578 372c0-34 44-34 44 0" fill="none" stroke="#1f4e5f" stroke-width="10" stroke-linecap="round"/><circle cx="581" cy="358" r="8" fill="#1f4e5f"/><circle cx="619" cy="358" r="8" fill="#1f4e5f"/>
+  <g fill="#1f4e5f" stroke="#fff" stroke-width="8"><circle cx="300" cy="220" r="70"/><circle cx="900" cy="220" r="70"/><circle cx="250" cy="610" r="70"/><circle cx="950" cy="610" r="70"/></g>
+  <g fill="#fff" font-family="Arial,sans-serif" text-anchor="middle" font-size="22" font-weight="700"><text x="300" y="228">LIDERAZGO</text><text x="900" y="228">CONFIANZA</text><text x="250" y="618">DIALOGO</text><text x="950" y="618">APOYO</text></g>
+  <text x="600" y="690" text-anchor="middle" font-family="Arial,sans-serif" font-size="29" fill="#143440" font-weight="700">la red humana sostiene el desempeno</text>
+</svg>

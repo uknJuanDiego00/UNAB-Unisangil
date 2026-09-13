@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Analisis psicologico de un cargo</title>
+  <desc id="desc">Ilustracion de una ficha de cargo con tareas, competencias y bienestar.</desc>
+  <rect width="1200" height="800" rx="32" fill="#f8f4ea"/>
+  <rect x="195" y="105" width="810" height="590" rx="24" fill="#fff" stroke="#1f4e5f" stroke-width="6"/>
+  <rect x="195" y="105" width="810" height="120" rx="24" fill="#1f4e5f"/>
+  <circle cx="270" cy="165" r="37" fill="#d9a441"/><path d="M252 165h36M270 147v36" stroke="#143440" stroke-width="8" stroke-linecap="round"/>
+  <text x="340" y="160" font-family="Arial,sans-serif" font-size="33" fill="#fff" font-weight="700">FICHA DEL CARGO</text>
+  <text x="340" y="195" font-family="Arial,sans-serif" font-size="21" fill="#d8e8e8">lectura humana del trabajo</text>
+  <g font-family="Arial,sans-serif">
+    <text x="260" y="285" font-size="25" fill="#143440" font-weight="700">Responsabilidades</text>
+    <path d="M260 320h480M260 360h400M260 400h445" stroke="#b8c9c9" stroke-width="14" stroke-linecap="round"/>
+    <text x="260" y="475" font-size="25" fill="#143440" font-weight="700">Competencias</text>
+    <rect x="260" y="510" width="180" height="48" rx="24" fill="#dcebea"/><text x="350" y="542" text-anchor="middle" font-size="18" fill="#1f4e5f">comunicacion</text>
+    <rect x="460" y="510" width="150" height="48" rx="24" fill="#f6e5bc"/><text x="535" y="542" text-anchor="middle" font-size="18" fill="#7b571e">liderazgo</text>
+    <rect x="630" y="510" width="170" height="48" rx="24" fill="#dcebea"/><text x="715" y="542" text-anchor="middle" font-size="18" fill="#1f4e5f">adaptacion</text>
+    <text x="260" y="635" font-size="22" fill="#6b7280">La persona tambien importa</text>
+  </g>
+  <circle cx="880" cy="390" r="84" fill="#4f7c82"/><path d="M840 400c24-44 56-44 80 0M858 365c0-28 44-28 44 0" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/><circle cx="858" cy="350" r="9" fill="#fff"/><circle cx="902" cy="350" r="9" fill="#fff"/>
+</svg>
