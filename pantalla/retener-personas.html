@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procesos para retener a las personas | Gestión Humana</title>
+  <meta name="description"
+    content="Procesos para retener a las personas: higiene, seguridad, calidad de vida, relaciones laborales y seguridad y salud en el trabajo.">
+  <link rel="icon" href="../img/logo-unisangil.png">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* Estilos complementarios para esta pantalla */
+    .retention-intro {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .retention-intro__image {
+      min-height: 300px;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(15, 76, 92, .16);
+    }
+
+    .retention-intro__image img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .retention-highlight {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      border-left: 4px solid #ff6b35;
+      border-radius: .8rem;
+      background: rgba(255, 107, 53, .08);
+    }
+
+    .retention-subprocess {
+      margin-top: 2.5rem;
+    }
+
+    .retention-subprocess__header {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .retention-subprocess__number {
+      display: grid;
+      place-items: center;
+      min-width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #0f4c5c;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .retention-subprocess__header h3 {
+      margin: 0 0 .35rem;
+    }
+
+    .retention-subprocess__header p {
+      margin: 0;
+    }
+
+    .retention-content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .retention-info-box {
+      padding: 1.5rem;
+      border: 1px solid rgba(15, 76, 92, .13);
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 0 10px 25px rgba(15, 76, 92, .06);
+    }
+
+    .retention-info-box h4 {
+      color: #0f4c5c;
+      margin-top: 0;
+      margin-bottom: .7rem;
+    }
+
+    .retention-info-box+.retention-info-box {
+      margin-top: 1rem;
+    }
+
+    .retention-info-box ul {
+      margin-bottom: 0;
+      padding-left: 1.2rem;
+    }
+
+    .retention-info-box li+li {
+      margin-top: .55rem;
+    }
+
+    .retention-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 150px;
+      gap: .75rem;
+      margin-top: 1.5rem;
+    }
+
+    .retention-gallery figure {
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+      border-radius: .9rem;
+      background: #e4e1de;
+    }
+
+    .retention-gallery figure:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .retention-gallery figure:nth-child(2) {
+      grid-column: span 2;
+    }
+
+    .retention-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s ease;
+    }
+
+    .retention-gallery figure:hover img {
+      transform: scale(1.06);
+    }
+
+    .retention-gallery figcaption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: .75rem;
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 700;
+      background: linear-gradient(transparent, rgba(0, 0, 0, .78));
+    }
+
+    .retention-video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .retention-video-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 210px;
+      padding: 1.4rem;
+      border-radius: 1rem;
+      color: #fff;
+      background: linear-gradient(135deg, #0f4c5c, #173f4a);
+    }
+
+    .retention-video-card .video-icon {
+      font-size: 2rem;
+    }
+
+    .retention-video-card h3 {
+      color: #fff;
+      margin: .7rem 0 .5rem;
+    }
+
+    .retention-video-card p {
+      color: rgba(255, 255, 255, .85);
+      margin-bottom: 1rem;
+    }
+
+    .retention-video-card a {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: .65rem 1rem;
+      border-radius: 999px;
+      background: #ff6b35;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .retention-video-card a:hover {
+      background: #fff;
+      color: #0f4c5c;
+    }
+
+    .retention-reference-note {
+      margin-top: 1rem;
+      font-size: .9rem;
+      color: #5d686c;
+    }
+
+    @media (max-width: 900px) {
+
+      .retention-intro,
+      .retention-content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .retention-video-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .retention-gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 125px;
+      }
+
+      .retention-gallery figure:first-child,
+      .retention-gallery figure:nth-child(2) {
+        grid-column: span 2;
+      }
+
+      .retention-video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .retention-intro__image,
+      .retention-intro__image img {
+        min-height: 230px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <nav class="breadcrumb container" aria-label="Ruta de navegación">
+      <a href="../index.html">Inicio</a>
+      <span class="sep">/</span>
+      <span aria-current="page">Retener personas</span>
+    </nav>
+
+    <section class="process-hero">
+      <div class="container">
+        <div class="process-hero-top">
+          <div>
+            <span class="process-number">Proceso 06 de 08</span>
+            <h1>Procesos para retener a las personas</h1>
+            <p class="process-hero-desc">
+              Estrategias continuas que permiten motivar, comprometer y conservar el talento
+              humano, creando condiciones laborales dignas, seguras, saludables y justas.
+            </p>
+            <div class="responsibles">
+              <span class="chip">Gestión Humana</span>
+              <span class="chip">Bienestar laboral</span>
+              <span class="chip">Seguridad y salud</span>
+            </div>
+          </div>
+          <div class="process-glyph" aria-hidden="true">06</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="definicion">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Definición</span>
+          <h2>¿En qué consiste retener a las personas?</h2>
+        </div>
+
+        <div class="retention-intro">
+          <div>
+            <p>
+              El proceso para retener a las personas en una organización consiste en aplicar
+              estrategias continuas para motivar, comprometer y evitar que el talento clave
+              abandone la empresa.
+            </p>
+            <p>
+              Para lograrlo, la organización debe ofrecer un entorno que cuide la salud física
+              y mental, promueva relaciones laborales de confianza, respete los derechos de los
+              colaboradores y fortalezca su bienestar integral.
+            </p>
+            <div class="retention-highlight">
+              <strong>Idea central:</strong>
+              retener talento no significa únicamente evitar la renuncia de un empleado, sino
+              construir condiciones que hagan que las personas quieran permanecer y crecer dentro
+              de la organización.
+            </div>
+          </div>
+
+          <div class="retention-intro__image">
+            <img src="../img/Pantalla_6/trabajoEquipo.png"
+              alt="Equipo de trabajo colaborando en una oficina">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="objetivos">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Objetivos</span>
+          <h2>Objetivos del proceso</h2>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <h3>Motivación y satisfacción</h3>
+            <p>Mantener al personal motivado y satisfecho para reducir la rotación y la fuga de talento.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Trabajo digno y seguro</h3>
+            <p>Crear condiciones de trabajo dignas, seguras y saludables que favorezcan el desempeño.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Confianza laboral</h3>
+            <p>Fortalecer el vínculo entre la empresa y el colaborador mediante relaciones justas y de confianza.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Cumplimiento legal</h3>
+            <p>Cumplir con la normativa de seguridad, salud ocupacional y derechos laborales.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Bienestar integral</h3>
+            <p>Consolidar una cultura organizacional que valore el bienestar como ventaja competitiva.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="caracteristicas">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Características</span>
+          <h2>Características del proceso</h2>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card card--outline-top reveal">
+            <h3>1. Es continuo</h3>
+            <p>No es una acción aislada; requiere seguimiento constante y ajustes según las necesidades de los
+              colaboradores.</p>
+          </div>
+          <div class="card card--outline-top reveal">
+            <h3>2. Participan varios actores</h3>
+            <p>Involucra a la dirección, talento humano, líderes de equipo, sindicatos y empleados.</p>
+          </div>
+          <div class="card card--outline-top reveal">
+            <h3>3. Es integral</h3>
+            <p>Combina aspectos físicos, como la seguridad; sociales, como las relaciones laborales; y psicológicos,
+              como la calidad de vida.</p>
+          </div>
+          <div class="card card--outline-top reveal">
+            <h3>4. Tiene regulación</h3>
+            <p>Está relacionado con leyes y normativas laborales que pueden variar según el país.</p>
+          </div>
+          <div class="card card--outline-top reveal">
+            <h3>5. Se puede medir</h3>
+            <p>Su éxito se refleja en indicadores como rotación, ausentismo, accidentalidad y clima laboral.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="subprocesos">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Subprocesos</span>
+          <h2>Componentes para retener el talento</h2>
+          <p>
+            Estos subprocesos se complementan para construir una experiencia laboral saludable,
+            justa y sostenible.
+          </p>
+        </div>
+
+        <!-- SUBPROCESO 1 -->
+        <article class="retention-subprocess">
+          <div class="retention-subprocess__header">
+            <span class="retention-subprocess__number">01</span>
+            <div>
+              <h3>Higiene, seguridad y calidad de vida</h3>
+              <p>Protección de la salud física y mental y promoción del bienestar en el trabajo.</p>
+            </div>
+          </div>
+
+          <div class="retention-content-grid">
+            <div>
+              <div class="retention-info-box">
+                <h4>¿Qué es?</h4>
+                <p>
+                  La higiene, la seguridad y la calidad de vida en el trabajo forman un conjunto
+                  de normas y prácticas para proteger la salud física y mental de los empleados.
+                </p>
+              </div>
+
+              <div class="retention-info-box">
+                <h4>¿Cómo se aborda en la empresa?</h4>
+                <ul>
+                  <li><strong>Higiene y ergonomía:</strong> mobiliario adecuado, iluminación, ventilación, control de
+                    ruido y limpieza para prevenir enfermedades ocupacionales.</li>
+                  <li><strong>Calidad de vida laboral:</strong> horarios flexibles o híbridos, desconexión digital,
+                    descanso y programas de balance vida-trabajo.</li>
+                  <li><strong>Bienestar psicológico:</strong> acompañamiento emocional, apoyo psicológico, pausas
+                    activas, manejo del estrés y prevención del burnout.</li>
+                  <li><strong>Beneficios complementarios:</strong> seguro médico, días de bienestar, convenios
+                    deportivos y alimentación saludable.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="retention-info-box">
+              <h4>Impacto esperado</h4>
+              <p>
+                Reduce el ausentismo, mejora la productividad y fortalece el compromiso del
+                empleado, porque se siente cuidado como persona y no solo como fuerza de trabajo.
+              </p>
+              <div class="retention-gallery" aria-label="Galería de higiene, seguridad y calidad de vida">
+                <figure>
+                  <img
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85"
+                    alt="Oficina organizada con espacios de trabajo">
+                  <figcaption>Espacios adecuados</figcaption>
+                </figure>
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=85"
+                    alt="Equipo reunido en un ambiente laboral">
+                  <figcaption>Balance y colaboración</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85"
+                    alt="Persona trabajando cómodamente frente a un computador">
+                  <figcaption>Ergonomía</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=85"
+                    alt="Actividad física para promover el bienestar">
+                  <figcaption>Bienestar físico</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- SUBPROCESO 2 -->
+        <article class="retention-subprocess">
+          <div class="retention-subprocess__header">
+            <span class="retention-subprocess__number">02</span>
+            <div>
+              <h3>Relaciones con los empleados y los sindicatos</h3>
+              <p>Construcción de vínculos de confianza, diálogo, respeto y representación laboral.</p>
+            </div>
+          </div>
+
+          <div class="retention-content-grid">
+            <div class="retention-info-box">
+              <h4>¿Qué significa?</h4>
+              <p>
+                Se refiere a la forma en que la organización construye vínculos de confianza,
+                diálogo y representación con su fuerza laboral, respetando la voz individual
+                del empleado y la voz colectiva de las organizaciones sindicales.
+              </p>
+              <h4>¿Cómo se aborda en la empresa?</h4>
+              <ul>
+                <li><strong>Comunicación abierta:</strong> buzones de sugerencias, encuestas de clima y reuniones
+                  periódicas sin temor a represalias.</li>
+                <li><strong>Negociación colectiva:</strong> mesas de diálogo transparentes para discutir condiciones
+                  laborales, salarios y beneficios.</li>
+                <li><strong>Resolución de conflictos:</strong> protocolos claros y mediación interna para atender quejas
+                  y desacuerdos.</li>
+                <li><strong>Derecho de asociación:</strong> respeto a la libertad sindical y ausencia de prácticas
+                  antisindicales.</li>
+              </ul>
+            </div>
+
+            <div class="retention-info-box">
+              <h4>Impacto esperado</h4>
+              <p>
+                Disminuye la conflictividad laboral, mejora la percepción de justicia
+                organizacional y aumenta la lealtad y permanencia del talento.
+              </p>
+              <div class="retention-gallery" aria-label="Galería de relaciones laborales">
+                <figure>
+                  <img
+                    src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=85"
+                    alt="Personas conversando y compartiendo en equipo">
+                  <figcaption>Confianza y equipo</figcaption>
+                </figure>
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85"
+                    alt="Reunión de trabajo con diálogo entre colaboradores">
+                  <figcaption>Diálogo abierto</figcaption>
+                </figure>
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=85"
+                    alt="Equipo colaborando en una mesa de trabajo">
+                  <figcaption>Negociación</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=85"
+                    alt="Personas reunidas para tomar decisiones">
+                  <figcaption>Acuerdos</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- SUBPROCESO 3 -->
+        <article class="retention-subprocess">
+          <div class="retention-subprocess__header">
+            <span class="retention-subprocess__number">03</span>
+            <div>
+              <h3>Seguridad y salud en el trabajo</h3>
+              <p>Prevención de accidentes laborales y enfermedades derivadas del trabajo.</p>
+            </div>
+          </div>
+
+          <div class="retention-content-grid">
+            <div class="retention-info-box">
+              <h4>¿Qué es?</h4>
+              <p>
+                Es el conjunto de acciones dirigidas a prevenir accidentes laborales y
+                enfermedades derivadas del trabajo, garantizando un entorno físicamente seguro
+                y promoviendo una cultura de prevención.
+              </p>
+              <h4>¿Cómo se aborda en la empresa?</h4>
+              <ul>
+                <li><strong>Capacitación constante:</strong> prevención de riesgos, manejo de maquinaria, primeros
+                  auxilios y emergencias.</li>
+                <li><strong>Equipos de protección personal:</strong> dotación y supervisión del uso correcto de los EPP.
+                </li>
+                <li><strong>Evaluaciones médicas periódicas:</strong> exámenes de ingreso, periódicos y de retiro.</li>
+                <li><strong>Comités de SST:</strong> representantes de la empresa y trabajadores que vigilan el
+                  cumplimiento y proponen mejoras.</li>
+                <li><strong>Cumplimiento normativo:</strong> alineación con la legislación local y estándares
+                  internacionales.</li>
+              </ul>
+            </div>
+
+            <div class="retention-info-box">
+              <h4>Impacto esperado</h4>
+              <p>
+                Reduce la accidentalidad, el ausentismo por incapacidades y los costos asociados.
+                Además, transmite confianza y compromiso genuino con la vida de los colaboradores.
+              </p>
+              <div class="retention-gallery" aria-label="Galería de seguridad y salud en el trabajo">
+                <figure>
+                  <img
+                    src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=85"
+                    alt="Trabajador utilizando elementos de protección">
+                  <figcaption>Prevención de riesgos</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=85"
+                    alt="Persona utilizando equipo de protección personal">
+                  <figcaption>Uso de EPP</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85"
+                    alt="Profesional de la salud realizando una revisión">
+                  <figcaption>Seguimiento de salud</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=85"
+                    alt="Trabajadores en un entorno laboral seguro">
+                  <figcaption>Cultura preventiva</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="indicadores">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Seguimiento</span>
+          <h2>¿Cómo se puede evaluar el proceso?</h2>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <h3>Rotación de personal</h3>
+            <p>Permite identificar cuántos colaboradores abandonan la organización durante un periodo.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Ausentismo</h3>
+            <p>Ayuda a observar la frecuencia de ausencias y sus posibles relaciones con el bienestar laboral.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Accidentalidad</h3>
+            <p>Refleja la efectividad de las acciones de prevención y seguridad en el trabajo.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Clima laboral</h3>
+            <p>Permite conocer la percepción de los empleados sobre el ambiente, el liderazgo y las relaciones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="recursos">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Material complementario</span>
+          <h2>Videos relacionados</h2>
+        </div>
+
+        <div class="retention-video-grid">
+          <article class="retention-video-card reveal">
+            <div>
+              <span class="video-icon">🎥</span>
+              <h3>Higiene, seguridad y calidad de vida</h3>
+              <p>Material audiovisual sobre bienestar, condiciones de trabajo y calidad de vida laboral.</p>
+            </div>
+            <a href="https://www.youtube.com/watch?v=R_YvitPnhmw" target="_blank" rel="noopener noreferrer">Ver
+              video</a>
+          </article>
+
+          <article class="retention-video-card reveal">
+            <div>
+              <span class="video-icon">🤝</span>
+              <h3>Relaciones con empleados y sindicatos</h3>
+              <p>Recurso relacionado con el diálogo, la representación y las relaciones laborales.</p>
+            </div>
+            <a href="https://www.youtube.com/watch?v=SO6o8ZdslSs" target="_blank" rel="noopener noreferrer">Ver
+              video</a>
+          </article>
+
+          <article class="retention-video-card reveal">
+            <div>
+              <span class="video-icon">🦺</span>
+              <h3>Seguridad y salud en el trabajo</h3>
+              <p>Material audiovisual sobre prevención de accidentes y cultura de seguridad.</p>
+            </div>
+            <a href="https://www.youtube.com/watch?v=y6jhr7QLNug" target="_blank" rel="noopener noreferrer">Ver
+              video</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="referencias">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Fundamentación</span>
+          <h2>Referencias bibliográficas</h2>
+        </div>
+
+        <div class="reference-list">
+          <div class="reference-item">
+            Chiavenato, I. (2009). <em>Gestión del talento humano</em> (3.ª ed.). McGraw-Hill.
+            <br>
+            <a href="https://www.academia.edu/42223113/Chiavenato_I_2009_Gesti%C3%B3n_del_Talento_Humano"
+              target="_blank" rel="noopener noreferrer">Consultar referencia</a>
+          </div>
+
+          <div class="reference-item">
+            Organización Internacional del Trabajo. (2021).
+            <em>Seguridad y salud en el trabajo.</em> OIT.
+            <br>
+            <a href="https://www.ilo.org" target="_blank" rel="noopener noreferrer">Visitar sitio de la OIT</a>
+          </div>
+
+          <div class="reference-item">
+            Werther, W. B., &amp; Davis, K. (2008).
+            <em>Administración de recursos humanos: El capital humano de las organizaciones</em>
+            (6.ª ed.). McGraw-Hill.
+            <br>
+            <a href="https://catalogo.ut.edu.co/cgi-bin/koha/opac-detail.pl?biblionumber=4188&shelfbrowse_itemnumber=65064"
+              target="_blank" rel="noopener noreferrer">Consultar referencia</a>
+          </div>
+        </div>
+
+        <p class="retention-reference-note">
+          Las imágenes se organizan en galerías tipo collage para facilitar la lectura visual y
+          mantener una presentación limpia y profesional.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="process-pager">
+          <a class="pager-link prev" href="./desarrollar-personas.html">
+            <span class="dir">← Anterior</span>
+            <span class="title">Desarrollar-personas</span>
+          </a>
+          <a class="pager-link next" href="./auditar-personas.html">
+            <span class="dir">Siguiente →</span>
+            <span class="title">Auditar-personas</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
